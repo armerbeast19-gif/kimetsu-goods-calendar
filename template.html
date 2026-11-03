@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +7,7 @@
 <meta name="description" content="鬼滅の刃のグッズ発売日・プライズ登場日・ufotable Cafe／DININGの予約日程を、公式情報だけでまとめた非公式カレンダーです。">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#000000">
+<script>(function(){var m="dark";try{m=localStorage.getItem("kmt-theme")||"dark"}catch(e){}var d=m==="dark"||(m==="auto"&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);})();</script>
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="mobile-web-app-capable" content="yes">
@@ -153,48 +154,42 @@ footer p{margin:4px 0}
 }
 
 /* ===== ダークテーマ（黒基調） ===== */
-:root{--ink:#e7e9ea;--sub:#8b98a5;--mute:#5b6670;--line:#2f3336;--bg:#000;--soft:#16181c;--red:#f4212e;--blue:#1d9bf0;
+html.dark{--ink:#e7e9ea;--sub:#8b98a5;--mute:#5b6670;--line:#2f3336;--bg:#000;--soft:#16181c;--red:#f4212e;--blue:#1d9bf0;
   --c-goods:#e7e9ea;--c-prize:#ff7a00;--c-deadline:#f4212e;--c-event:#1d9bf0;--c-cafe:#00ba7c;--c-reserve:#8b5cf6}
-html{background:#000;color-scheme:dark}
-body{background:#000;color:#e7e9ea}
-.topbar{background:#000;border-bottom:1px solid var(--line)}
-header.mast{border-bottom:1px solid var(--line)}
-.mark{background:#e7e9ea;color:#000}
-.mnav button,.chip,.bt,.flt input,.cc button{background:#000;color:#e7e9ea;border-color:var(--line)}
-.mnav button:hover{background:#e7e9ea;color:#000}
-.today-btn,.bt.y{background:#e7e9ea;color:#000;border-color:#e7e9ea}
-.chip:not(.off){border-color:#e7e9ea}
-.chip span{color:var(--mute)!important}
-.cc button.on{background:var(--blue);border-color:var(--blue);color:#fff}
-.cc button small{color:var(--mute)}
-.flt input::placeholder{color:var(--mute)}
-.fnote{color:var(--blue)}
-.cal{border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.dow{background:var(--soft);border-bottom:1px solid var(--line);color:#e7e9ea}
-.day.other{background:#0a0b0c}
-.day.other .dn{color:#3e4144}
-.day.today{background:#071a2b;box-shadow:inset 0 0 0 2px var(--blue)}
-.day.today .dn::after{background:var(--blue);color:#fff}
-.day.sel{box-shadow:inset 0 0 0 2px #e7e9ea}
-.pill{background:var(--soft);color:#e7e9ea}
-.pill:hover{background:#202327}
-.pill.prize{background:#2a1a0b;color:#ffb36b}
-.pill.deadline{background:#2c0d11;color:#ff7b84}
-.pill.event{background:#0b1d2e;color:#7cc4ff}
-.pill.cafe{background:#0a231a;color:#5fd3a2}
-.pill.reserve{background:#1d1433;color:#c3a6ff}
-.lab.goods{color:#000}
-h2.sec::before,.selbox h3::before{background:#e7e9ea}
-.rows,.cafes{border-top:1px solid var(--line)}
-.row:hover,.cf:hover{background:var(--soft)}
-.cf .p{color:var(--c-cafe)}
-.cf .r b{color:#c3a6ff}
-.ov{background:rgba(91,112,131,.45)}
-.md{background:#000;color:#e7e9ea;border:1px solid var(--line);border-top:6px solid #e7e9ea;border-radius:12px}
-.md .x{color:#e7e9ea}
-.re{border-color:#e7e9ea}
-footer{background:#000;border-top:1px solid var(--line);color:var(--sub)}
-.follow{border-color:var(--line)}
+html.dark{background:#000;color-scheme:dark}
+html.dark body{background:#000;color:#e7e9ea}
+html.dark .topbar{background:#000}
+html.dark header.mast{border-bottom:1px solid var(--line)}
+html.dark .mnav button,html.dark .chip,html.dark .bt,html.dark .flt input,html.dark .cc button{background:#000;color:#e7e9ea;border-color:var(--line)}
+html.dark .mnav button:hover{background:#e7e9ea;color:#000}
+html.dark .today-btn,html.dark .bt.y{background:#e7e9ea;color:#000;border-color:#e7e9ea}
+html.dark .chip:not(.off){border-color:#e7e9ea}
+html.dark .chip span{color:var(--mute)!important}
+html.dark .cc button small{color:var(--mute)}
+html.dark .flt input::placeholder{color:var(--mute)}
+html.dark .cal{border-top:1px solid var(--line);border-left:1px solid var(--line)}
+html.dark .dow{background:var(--soft);border-bottom:1px solid var(--line);color:#e7e9ea}
+html.dark .day.other{background:#0a0b0c}
+html.dark .day.other .dn{color:#3e4144}
+html.dark .day.sel{box-shadow:inset 0 0 0 2px #e7e9ea}
+html.dark .pill{background:var(--soft);color:#e7e9ea}
+html.dark .pill:hover{background:#202327}
+html.dark .pill.prize{background:#2a1a0b;color:#ffb36b}
+html.dark .pill.deadline{background:#2c0d11;color:#ff7b84}
+html.dark .pill.event{background:#0b1d2e;color:#7cc4ff}
+html.dark .pill.cafe{background:#0a231a;color:#5fd3a2}
+html.dark .pill.reserve{background:#1d1433;color:#c3a6ff}
+html.dark .lab.goods{color:#000}
+html.dark .rows,html.dark .cafes{border-top:1px solid var(--line)}
+html.dark .row:hover,html.dark .cf:hover{background:var(--soft)}
+html.dark .cf .p{color:var(--c-cafe)}
+html.dark .cf .r b{color:#c3a6ff}
+html.dark .ov{background:rgba(91,112,131,.45)}
+html.dark .md{background:#000;color:#e7e9ea;border:1px solid var(--line);border-top:6px solid var(--acc);border-radius:12px}
+html.dark .md .x{color:#e7e9ea}
+html.dark .re{border-color:#e7e9ea}
+html.dark footer{background:#000;border-top:1px solid var(--line);color:var(--sub)}
+html.dark .follow{border-color:var(--line)}
 @media (max-width:760px){
   header.mast .wrap{padding:12px 8px;gap:10px}
   .mark{font-size:11px;padding:6px 7px}
@@ -205,28 +200,64 @@ footer{background:#000;border-top:1px solid var(--line);color:var(--sub)}
   .chips::-webkit-scrollbar,.cc::-webkit-scrollbar{display:none}
   .chip,.cc button{flex:none}
   .flt{padding-bottom:10px}
-  .day.today{box-shadow:none;background:#000}
-  .day.today .dn{background:var(--blue);color:#fff!important}
-  .day.sel{box-shadow:inset 0 0 0 2px #e7e9ea}
-}
-/* ===== 黒・赤・白 ===== */
-:root{--acc:#ff2d3d}
+  html.dark .day.sel{box-shadow:inset 0 0 0 2px #e7e9ea}}
+/* ===== 黒・赤・白（両テーマ共通） ===== */
+:root{--acc:#e60012}
+html.dark{--acc:#ff2d3d}
 .mark{background:var(--acc);color:#fff}
 .cc button.on{background:var(--acc);border-color:var(--acc);color:#fff}
 .cc button.on small{color:#ffd6d9}
 .fnote{color:var(--acc)}
-.day.today{background:#1f0507;box-shadow:inset 0 0 0 2px var(--acc)}
 .day.today .dn::after{background:var(--acc);color:#fff}
-.dow.sat,.day.sat .dn{color:#e7e9ea}
+.dow.sat,.day.sat .dn{color:var(--ink)}
 .dow.sun,.day.sun .dn{color:var(--acc)}
 h2.sec::before,.selbox h3::before{background:var(--acc)}
 .md{border-top-color:var(--acc)}
 .topbar{border-bottom:2px solid var(--acc)}
 .bt.y:hover,.today-btn:hover{background:var(--acc);border-color:var(--acc);color:#fff}
+/* ライト */
+html:not(.dark) .today-btn,html:not(.dark) .bt.y{background:var(--ink);color:#fff;border-color:var(--ink)}
+html:not(.dark) .day.today{background:#fff0f1;box-shadow:inset 0 0 0 2px var(--acc)}
+html:not(.dark) .md{border-radius:12px}
+/* ダーク */
+html.dark .day.today{background:#1f0507;box-shadow:inset 0 0 0 2px var(--acc)}
 @media (max-width:760px){
-  .day.today{background:#000;box-shadow:none}
-  .day.today .dn{background:var(--acc);color:#fff!important}
+  .day.today,html.dark .day.today,html:not(.dark) .day.today{background:transparent;box-shadow:none}
+  .day.today .dn,html.dark .day.today .dn{background:var(--acc);color:#fff!important}
 }
+
+/* ===== テーマ切替 ===== */
+.thm{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:999px;padding:2px;flex:none}
+.thm button{border:none;background:none;padding:4px 10px;font-size:12px;font-weight:700;color:var(--sub);cursor:pointer;border-radius:999px;white-space:nowrap}
+.thm button.on{background:var(--ink);color:var(--bg)}
+@media (max-width:760px){.thm{align-self:flex-start}.thm button{padding:3px 7px;font-size:11px}.thm button span{display:none}}
+/* ===== 日付の吹き出し ===== */
+.day{cursor:pointer}
+.day.sel{box-shadow:inset 0 0 0 2px var(--acc)!important}
+.pop{position:absolute;z-index:40;width:330px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-top:4px solid var(--acc);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:10px 12px 12px;display:none}
+html.dark .pop{background:#0d0e10;box-shadow:0 10px 30px rgba(0,0,0,.8),0 0 0 1px #2f3336}
+.pop.on{display:block}
+.pop .ar{position:absolute;width:14px;height:14px;background:inherit;transform:rotate(45deg)}
+.pop.r .ar{left:-8px;border-left:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pop.l .ar{right:-8px;border-right:1px solid var(--line);border-top:1px solid var(--line)}
+.pop.b .ar{top:-10px;background:var(--acc)}
+.pop .ph{display:flex;align-items:center;justify-content:space-between;font-weight:900;font-size:15px;margin:0 0 8px}
+.pop .ph button{border:none;background:none;font-size:20px;line-height:1;cursor:pointer;color:var(--sub);padding:0 2px}
+.pop .pl{display:flex;flex-direction:column;gap:6px;max-height:60vh;overflow:auto}
+.pi{display:block;width:100%;text-align:left;border:none;border-left:4px solid var(--c-goods);background:var(--soft);padding:7px 9px;cursor:pointer;border-radius:0 6px 6px 0}
+.pi:hover{filter:brightness(1.15)}
+.pi.prize{border-color:var(--c-prize)} .pi.deadline{border-color:var(--c-deadline)} .pi.event{border-color:var(--c-event)} .pi.cafe{border-color:var(--c-cafe)} .pi.reserve{border-color:var(--c-reserve)}
+.pi .lab{font-size:10px;padding:1px 6px;margin-right:6px;vertical-align:1px}
+.pi .nm{font-weight:900;font-size:13px;line-height:1.4}
+.pi .sb{display:block;font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.pi .go{display:block;font-size:11px;color:var(--acc);font-weight:700;margin-top:3px}
+.pop .none{color:var(--mute);font-size:13px;padding:6px 0}
+/* ===== カフェ一覧（コンパクト） ===== */
+.row.cfr{grid-template-columns:190px 1fr auto}
+.cfr .p{font-weight:900;font-size:13px;color:var(--c-cafe);white-space:nowrap}
+.cfr .n small{font-weight:500;color:var(--sub);font-size:12px;margin-left:8px}
+.cfr .mk{color:var(--acc);font-weight:700}
+@media (max-width:760px){.row.cfr{grid-template-columns:1fr auto;gap:2px 10px}.cfr .p{grid-column:1}.cfr .n{grid-column:1}.cfr .mk{grid-column:2;grid-row:1/3;align-self:center}.cfr .n small{display:block;margin-left:0}}
 </style>
 </head>
 <body>
@@ -234,6 +265,7 @@ h2.sec::before,.selbox h3::before{background:var(--acc)}
 <header class="mast"><div class="wrap">
   <div class="mark">鬼滅<br>GOODS</div>
   <h1 class="ttl"><small>DEMON SLAYER GOODS CALENDAR</small>鬼滅の刃 グッズ発売カレンダー</h1>
+  <div class="thm" id="thm" role="group" aria-label="背景色"><button data-th="dark" title="黒い背景">🌙<span> 黒</span></button><button data-th="light" title="白い背景">☀️<span> 白</span></button><button data-th="auto" title="端末の設定に合わせる">自動</button></div>
 </div></header>
 
 <main class="wrap">
@@ -254,13 +286,12 @@ h2.sec::before,.selbox h3::before{background:var(--acc)}
   </div>
   <div class="cal" id="cal"></div>
   <div class="agenda" id="agenda"></div>
-  <div class="selbox" id="selbox"></div>
 
   <h2 class="sec" id="undatedTtl"></h2>
   <div class="rows" id="undated"></div>
 
   <!--__AD_SLOT__-->
-  <h2 class="sec">開催中・開催予定のカフェ・ダイニング<small>予約方法つき</small></h2>
+  <h2 class="sec">開催中・開催予定のカフェ・ダイニング<small>タップで予約方法</small></h2>
   <div class="cafes" id="cafes"></div>
 
   <h2 class="sec">これからの締切・受付・カフェ<small>終了日が近い順</small></h2>
@@ -273,6 +304,7 @@ h2.sec::before,.selbox h3::before{background:var(--acc)}
   <!--__FOOTLINKS__--><p>本サイトは非公式のまとめです。©吾峠呼世晴／集英社・アニプレックス・ufotable</p>
 </div></footer>
 
+<div class="pop" id="pop" role="dialog"></div>
 <div class="ov" id="ov"><div class="md" id="md"></div></div>
 
 <script>
@@ -291,9 +323,9 @@ try{ const s=JSON.parse(localStorage.getItem("kmt-filter")||"null"); if(s) on=Ob
 const now = new Date();
 const TODAY = new Date(now.getFullYear(),now.getMonth(),now.getDate());
 let cy = TODAY.getFullYear(), cm = TODAY.getMonth()+1;
-let selDay = `${TODAY.getFullYear()}-${String(TODAY.getMonth()+1).padStart(2,"0")}-${String(TODAY.getDate()).padStart(2,"0")}`;
+let selDay = null;
 const isMobile=()=>window.matchMedia("(max-width:760px)").matches;
-function resetSel(){ selDay = (TODAY.getFullYear()===cy&&TODAY.getMonth()+1===cm) ? ymd(TODAY) : `${cy}-${String(cm).padStart(2,"0")}-01`; }
+function resetSel(){ selDay = null; }
 
 const pad=n=>String(n).padStart(2,"0");
 const ymd=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
@@ -356,8 +388,6 @@ function renderCal(){
   }
   document.getElementById("cal").innerHTML=html;
   document.getElementById("agenda").innerHTML=ag||'<div class="empty">この月に日付が決まっている予定はありません</div>';
-  { const sd=parse(selDay), sl=itemsOn(selDay);
-    document.getElementById("selbox").innerHTML=`<h3>${sd.getMonth()+1}月${sd.getDate()}日（${DOW[sd.getDay()]}）の予定</h3>`+(sl.length?`<div class="ag-items">${sl.map(x=>pill(x,selDay)).join("")}</div>`:'<div class="empty">この日の予定はありません。カレンダーの日付をタップすると、その日の予定が表示されます。</div>'); }
   const ymKey=`${cy}-${pad(cm)}`, PO={"上旬":1,"中旬":2,"下旬":3};
   const und=ITEMS.filter(it=>visible(it)&&!it.date&&it.ym===ymKey).sort((a,b)=>(PO[a.part]||9)-(PO[b.part]||9)||a.type.localeCompare(b.type));
   document.getElementById("undatedTtl").innerHTML=`${cm}月発売・登場（日付未定）<small>${und.length}件</small>`;
@@ -378,7 +408,7 @@ function renderDeadlines(){
 function renderCafes(){
   const f=d=>{const x=parse(d);return `${x.getMonth()+1}/${x.getDate()}（${DOW[x.getDay()]}）`;};
   const list=ITEMS.filter(it=>it.type==="cafe"&&it.date&&daysTo(it.date)>=0).sort((a,b)=>parse(a.date)-parse(b.date));
-  document.getElementById("cafes").innerHTML = list.map(it=>`<div class="cf" data-id="${esc(it.id)}"><span class="p">${it.start?f(it.start)+"〜":""}${f(it.date)}</span><span class="n">${esc(it.name)}<span style="font-weight:500;color:var(--sub);font-size:12px">　${esc(it.maker||"")}</span></span>${it.reserve?`<span class="r"><b>予約：</b>${esc(it.reserve)}</span>`:""}</div>`).join("") || '<div class="empty">開催予定のカフェ・ダイニングはありません</div>';
+  document.getElementById("cafes").innerHTML = list.map(it=>`<button class="row cfr" data-id="${esc(it.id)}"><span class="p">${it.start?f(it.start)+"〜":""}${f(it.date)}</span><span class="n">${esc(it.name)}<small>${esc(it.maker||"")}</small></span><span class="mk">${it.reserve?"予約方法 ›":"詳細 ›"}</span></button>`).join("") || '<div class="empty">開催予定のカフェ・ダイニングはありません</div>';
 }
 function renderAll(){ renderChips(); renderCC(); renderCal(); renderCafes(); renderDeadlines(); }
 
@@ -407,23 +437,76 @@ function openDay(s){
   md.innerHTML=`<button class="x" aria-label="閉じる">×</button><h3>${d.getMonth()+1}月${d.getDate()}日（${DOW[d.getDay()]}）</h3><div class="ag-items">${list.map(x=>pill(x,s)).join("")}</div>`;
   document.getElementById("ov").classList.add("on");
 }
+
+function subText(it,s){
+  const f=d=>{const x=parse(d);return `${x.getMonth()+1}/${x.getDate()}`;};
+  const a=[];
+  if(it.type==="cafe") a.push(it.start===s?`今日から ${f(it.start)}〜${f(it.date)}`:`今日が最終日（${it.start?f(it.start)+"〜":""}${f(it.date)}）`);
+  else if(it.type==="deadline"||it.type==="event") a.push(it.start&&it.start!==it.date?`${f(it.start)}〜${f(it.date)}`:"");
+  if(it.price) a.push(it.price);
+  if(it.maker&&it.type!=="cafe") a.push(it.maker);
+  let s2=a.filter(Boolean).join("・");
+  if(it.note) s2+=(s2?"　":"")+it.note;
+  return s2.length>90?s2.slice(0,88)+"…":s2;
+}
+function closePop(){ const p=document.getElementById("pop"); p.classList.remove("on"); document.querySelectorAll(".day.sel").forEach(x=>x.classList.remove("sel")); selDay=null; }
+function openPop(s,cell){
+  const p=document.getElementById("pop"), list=itemsOn(s), d=parse(s);
+  document.querySelectorAll(".day.sel").forEach(x=>x.classList.remove("sel")); cell.classList.add("sel"); selDay=s;
+  const lb=it=>it.type==="goods"?(CATN[it.cat]||"発売"):TYPES[it.type].label;
+  p.innerHTML=`<span class="ar"></span><div class="ph">${d.getMonth()+1}月${d.getDate()}日（${DOW[d.getDay()]}）<button aria-label="閉じる" data-close>×</button></div>`+
+    (list.length?`<div class="pl">${list.map(it=>`<button class="pi ${it.type}" data-id="${esc(it.id)}"><span class="nm"><span class="lab ${it.type}">${esc(lb(it))}</span>${esc(it.name)}${it.re?'<span class="re">再販</span>':""}</span>${subText(it,s)?`<span class="sb">${esc(subText(it,s))}</span>`:""}<span class="go">詳しく見る ›</span></button>`).join("")}</div>`:'<div class="none">この日の予定はありません</div>');
+  p.className="pop on";
+  const r=cell.getBoundingClientRect(), sx=window.scrollX, sy=window.scrollY, vw=document.documentElement.clientWidth, M=8;
+  const ar=p.querySelector(".ar");
+  if(isMobile()){
+    const w=Math.min(380,vw-M*2); p.style.width=w+"px";
+    let left=r.left+r.width/2-w/2; left=Math.max(M,Math.min(vw-w-M,left));
+    p.classList.add("b"); p.style.left=(left+sx)+"px"; p.style.top=(r.bottom+sy+10)+"px";
+    ar.style.left=(r.left+r.width/2-left-7)+"px"; ar.style.top="-9px";
+    const pb=r.bottom+10+p.offsetHeight, vh=window.innerHeight;
+    if(pb>vh) window.scrollBy({top:Math.min(pb-vh+12,r.top-60),behavior:"smooth"});
+  }else{
+    const w=330; p.style.width=w+"px";
+    let left, side;
+    if(r.right+12+w<=vw-M){left=r.right+12;side="r";}else{left=r.left-12-w;side="l";}
+    p.classList.add(side);
+    const h=p.offsetHeight, vh=window.innerHeight;
+    let top=r.top; if(top+h>vh-M) top=Math.max(M,vh-M-h);
+    p.style.left=(left+sx)+"px"; p.style.top=(top+sy)+"px";
+    ar.style.top=Math.max(10,Math.min(h-24,r.top-top+14))+"px"; ar.style.left=""; 
+  }
+}
 const closeM=()=>document.getElementById("ov").classList.remove("on");
 document.addEventListener("click",e=>{
   const t=e.target;
   if(t.closest(".x")||t.id==="ov"){closeM();return;}
-  const dc=t.closest(".cal [data-sel]"); if(dc && isMobile()){ selDay=dc.dataset.sel; const d=parse(selDay); if(d.getMonth()+1!==cm||d.getFullYear()!==cy){cy=d.getFullYear();cm=d.getMonth()+1;} renderCal(); return; }
+  if(t.closest("[data-close]")){closePop();return;}
+  const th=t.closest("[data-th]"); if(th){setTheme(th.dataset.th);return;}
+  const pi=t.closest(".pop [data-id]"); if(pi){openItem(pi.dataset.id);return;}
+  const dc=t.closest(".cal [data-sel]");
+  if(dc && (isMobile() || !t.closest(".pill"))){ const s=dc.dataset.sel; if(selDay===s&&document.getElementById("pop").classList.contains("on")){closePop();return;} openPop(s,dc); return; }
+  if(!t.closest("#pop")) closePop();
   const p=t.closest("[data-id]"); if(p){openItem(p.dataset.id);return;}
-  const m=t.closest(".more"); if(m){openDay(m.dataset.day);return;}
   const cb=t.closest("[data-c]"); if(cb){fc=fc===cb.dataset.c?"":cb.dataset.c; renderAll(); return;}
   if(t.id==="clr"){fc="";fq="";document.getElementById("q").value="";renderAll();return;}
   const c=t.closest(".chip"); if(c){on[c.dataset.t]=!on[c.dataset.t]; try{localStorage.setItem("kmt-filter",JSON.stringify(on));}catch(_){} renderAll();}
 });
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeM();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeM();closePop();}});
+function setTheme(m){
+  try{localStorage.setItem("kmt-theme",m);}catch(e){}
+  const d=m==="dark"||(m==="auto"&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches);
+  document.documentElement.classList.toggle("dark",d);
+  const tc=document.querySelector('meta[name="theme-color"]'); if(tc) tc.content=d?"#000000":"#ffffff";
+  document.querySelectorAll("[data-th]").forEach(b=>b.classList.toggle("on",b.dataset.th===m));
+}
+(function(){let m="dark";try{m=localStorage.getItem("kmt-theme")||"dark";}catch(e){} setTheme(m);
+  if(window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>{let k="dark";try{k=localStorage.getItem("kmt-theme")||"dark";}catch(e){} if(k==="auto")setTheme("auto");});})();
 document.getElementById("q").addEventListener("input",e=>{fq=e.target.value.trim();renderAll();});
-document.getElementById("prev").onclick=()=>{cm--; if(cm<1){cm=12;cy--;} resetSel(); renderCal();};
-document.getElementById("next").onclick=()=>{cm++; if(cm>12){cm=1;cy++;} resetSel(); renderCal();};
-document.getElementById("todayBtn").onclick=()=>{cy=TODAY.getFullYear();cm=TODAY.getMonth()+1;resetSel();renderCal();};
-let wasMobile=isMobile(); window.addEventListener("resize",()=>{const m=isMobile(); if(m!==wasMobile){wasMobile=m; renderCal();}});
+document.getElementById("prev").onclick=()=>{closePop();cm--; if(cm<1){cm=12;cy--;} resetSel(); renderCal();};
+document.getElementById("next").onclick=()=>{closePop();cm++; if(cm>12){cm=1;cy++;} resetSel(); renderCal();};
+document.getElementById("todayBtn").onclick=()=>{closePop();cy=TODAY.getFullYear();cm=TODAY.getMonth()+1;resetSel();renderCal();};
+let wasMobile=isMobile(), lastW=window.innerWidth; window.addEventListener("resize",()=>{const m=isMobile(); if(window.innerWidth!==lastW){lastW=window.innerWidth; closePop();} if(m!==wasMobile){wasMobile=m; renderCal();}});
 
 function apply(d){
   if(!d||!Array.isArray(d.items)) return false;
