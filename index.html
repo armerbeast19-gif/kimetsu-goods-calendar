@@ -209,6 +209,24 @@ footer{background:#000;border-top:1px solid var(--line);color:var(--sub)}
   .day.today .dn{background:var(--blue);color:#fff!important}
   .day.sel{box-shadow:inset 0 0 0 2px #e7e9ea}
 }
+/* ===== 黒・赤・白 ===== */
+:root{--acc:#ff2d3d}
+.mark{background:var(--acc);color:#fff}
+.cc button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.cc button.on small{color:#ffd6d9}
+.fnote{color:var(--acc)}
+.day.today{background:#1f0507;box-shadow:inset 0 0 0 2px var(--acc)}
+.day.today .dn::after{background:var(--acc);color:#fff}
+.dow.sat,.day.sat .dn{color:#e7e9ea}
+.dow.sun,.day.sun .dn{color:var(--acc)}
+h2.sec::before,.selbox h3::before{background:var(--acc)}
+.md{border-top-color:var(--acc)}
+.topbar{border-bottom:2px solid var(--acc)}
+.bt.y:hover,.today-btn:hover{background:var(--acc);border-color:var(--acc);color:#fff}
+@media (max-width:760px){
+  .day.today{background:#000;box-shadow:none}
+  .day.today .dn{background:var(--acc);color:#fff!important}
+}
 </style>
 </head>
 <body>
