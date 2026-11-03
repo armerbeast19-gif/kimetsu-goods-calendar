@@ -22,7 +22,7 @@
 :root{
   --ink:#111; --sub:#555; --mute:#999; --line:#e5e5e5; --bg:#fff; --soft:#f5f5f5;
   --red:#e60012; --yellow:#ffe100; --blue:#1d5fd1;
-  --c-goods:#111; --c-prize:#ff7a00; --c-deadline:#e60012; --c-event:#1d5fd1; --c-cafe:#0e8a5f; --c-reserve:#7b3fe4;
+  --c-goods:#111; --c-prize:#ff7a00; --c-deadline:#e60012; --c-event:#1d5fd1; --c-cafe:#0e8a5f; --c-reserve:#7b3fe4; --c-collab:#d6336c;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -67,6 +67,7 @@ header.mast .wrap{display:flex;align-items:center;gap:14px;padding:16px}
 .pill.event{border-color:var(--c-event);background:#eef3fc}
 .pill.cafe{border-color:var(--c-cafe);background:#e8f6ef;color:#0b5e41}
 .pill.reserve{border-color:var(--c-reserve);background:#f3edfd;color:#5523b0}
+.pill.collab{border-color:var(--c-collab);background:#fdeef4;color:#a61e4d}
 .cafes{border-top:2px solid var(--ink)}
 .cf{display:grid;grid-template-columns:150px 1fr;gap:6px 16px;padding:12px 4px;border-bottom:1px solid var(--line);cursor:pointer}
 .cf:hover{background:var(--soft)}
@@ -86,7 +87,7 @@ h2.sec small{font-size:12px;color:var(--sub);font-weight:500}
 .row .n{font-weight:700}
 .row .mk{font-size:12px;color:var(--sub);white-space:nowrap}
 .lab{display:inline-block;white-space:nowrap;font-size:11px;font-weight:900;color:#fff;padding:2px 7px;text-align:center}
-.lab.goods{background:var(--c-goods)} .lab.prize{background:var(--c-prize)} .lab.deadline{background:var(--c-deadline)} .lab.event{background:var(--c-event)} .lab.cafe{background:var(--c-cafe)} .lab.reserve{background:var(--c-reserve)}
+.lab.goods{background:var(--c-goods)} .lab.prize{background:var(--c-prize)} .lab.deadline{background:var(--c-deadline)} .lab.event{background:var(--c-event)} .lab.cafe{background:var(--c-cafe)} .lab.reserve{background:var(--c-reserve)} .lab.collab{background:var(--c-collab)}
 .empty{padding:22px;text-align:center;color:var(--mute);border-bottom:1px solid var(--line)}
 .agenda{display:none}
 .ag-day{display:grid;grid-template-columns:54px 1fr;border-bottom:1px solid var(--line);padding:8px 0}
@@ -99,7 +100,7 @@ h2.sec small{font-size:12px;color:var(--sub);font-weight:500}
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
 .ov.on{display:flex}
 .md{background:#fff;max-width:480px;width:100%;border-top:6px solid var(--ink);padding:20px 22px 22px;position:relative;max-height:90vh;overflow:auto}
-.md.prize{border-color:var(--c-prize)} .md.deadline{border-color:var(--c-deadline)} .md.event{border-color:var(--c-event)} .md.cafe{border-color:var(--c-cafe)} .md.reserve{border-color:var(--c-reserve)}
+.md.prize{border-color:var(--c-prize)} .md.deadline{border-color:var(--c-deadline)} .md.event{border-color:var(--c-event)} .md.cafe{border-color:var(--c-cafe)} .md.reserve{border-color:var(--c-reserve)} .md.collab{border-color:var(--c-collab)}
 .md .x{position:absolute;top:10px;right:12px;border:none;background:none;font-size:22px;cursor:pointer;line-height:1}
 .md h3{font-size:18px;font-weight:900;margin:8px 0 12px;line-height:1.4;padding-right:20px}
 .md dl{display:grid;grid-template-columns:76px 1fr;gap:6px 10px;margin:0 0 16px;font-size:13px}
@@ -155,7 +156,7 @@ footer p{margin:4px 0}
 
 /* ===== ダークテーマ（黒基調） ===== */
 html.dark{--ink:#e7e9ea;--sub:#8b98a5;--mute:#5b6670;--line:#2f3336;--bg:#000;--soft:#16181c;--red:#f4212e;--blue:#1d9bf0;
-  --c-goods:#e7e9ea;--c-prize:#ff7a00;--c-deadline:#f4212e;--c-event:#1d9bf0;--c-cafe:#00ba7c;--c-reserve:#8b5cf6}
+  --c-goods:#e7e9ea;--c-prize:#ff7a00;--c-deadline:#f4212e;--c-event:#1d9bf0;--c-cafe:#00ba7c;--c-reserve:#8b5cf6;--c-collab:#f06595}
 html.dark{background:#000;color-scheme:dark}
 html.dark body{background:#000;color:#e7e9ea}
 html.dark .topbar{background:#000}
@@ -179,6 +180,7 @@ html.dark .pill.deadline{background:#2c0d11;color:#ff7b84}
 html.dark .pill.event{background:#0b1d2e;color:#7cc4ff}
 html.dark .pill.cafe{background:#0a231a;color:#5fd3a2}
 html.dark .pill.reserve{background:#1d1433;color:#c3a6ff}
+html.dark .pill.collab{background:#2b0f1c;color:#ff8fb8}
 html.dark .lab.goods{color:#000}
 html.dark .rows,html.dark .cafes{border-top:1px solid var(--line)}
 html.dark .row:hover,html.dark .cf:hover{background:var(--soft)}
@@ -246,7 +248,7 @@ html.dark .pop{background:#0d0e10;box-shadow:0 10px 30px rgba(0,0,0,.8),0 0 0 1p
 .pop .pl{display:flex;flex-direction:column;gap:6px;max-height:60vh;overflow:auto}
 .pi{display:block;width:100%;text-align:left;border:none;border-left:4px solid var(--c-goods);background:var(--soft);padding:7px 9px;cursor:pointer;border-radius:0 6px 6px 0}
 .pi:hover{filter:brightness(1.15)}
-.pi.prize{border-color:var(--c-prize)} .pi.deadline{border-color:var(--c-deadline)} .pi.event{border-color:var(--c-event)} .pi.cafe{border-color:var(--c-cafe)} .pi.reserve{border-color:var(--c-reserve)}
+.pi.prize{border-color:var(--c-prize)} .pi.deadline{border-color:var(--c-deadline)} .pi.event{border-color:var(--c-event)} .pi.cafe{border-color:var(--c-cafe)} .pi.reserve{border-color:var(--c-reserve)} .pi.collab{border-color:var(--c-collab)}
 .pi .lab{font-size:10px;padding:1px 6px;margin-right:6px;vertical-align:1px}
 .pi .nm{font-weight:900;font-size:13px;line-height:1.4}
 .pi .sb{display:block;font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
@@ -255,6 +257,7 @@ html.dark .pop{background:#0d0e10;box-shadow:0 10px 30px rgba(0,0,0,.8),0 0 0 1p
 /* ===== カフェ一覧（コンパクト） ===== */
 .row.cfr{grid-template-columns:190px 1fr auto}
 .cfr .p{font-weight:900;font-size:13px;color:var(--c-cafe);white-space:nowrap}
+.cfr.cl .p{color:var(--c-collab)}
 .cfr .n small{font-weight:500;color:var(--sub);font-size:12px;margin-left:8px}
 .cfr .mk{color:var(--acc);font-weight:700}
 @media (max-width:760px){.row.cfr{grid-template-columns:1fr auto;gap:2px 10px}.cfr .p{grid-column:1}.cfr .n{grid-column:1}.cfr .mk{grid-column:2;grid-row:1/3;align-self:center}.cfr .n small{display:block;margin-left:0}}
@@ -295,6 +298,9 @@ html.dark .pop{background:#0d0e10;box-shadow:0 10px 30px rgba(0,0,0,.8),0 0 0 1p
   <h2 class="sec">開催中・開催予定のカフェ・ダイニング<small>タップで予約方法</small></h2>
   <div class="cafes" id="cafes"></div>
 
+  <h2 class="sec">開催中・開催予定の期間限定コラボ<small>タップで詳細</small></h2>
+  <div class="cafes" id="collabs"></div>
+
   <h2 class="sec">これからの締切・受付・カフェ<small>終了日が近い順</small></h2>
   <div class="rows" id="deadlines"></div>
   <!--__FOLLOW__-->
@@ -314,11 +320,11 @@ const DATA_URL = "__DATA_URL__";
 /* このファイルを作った時点のデータ（予備） */
 const EMBED = /*__EMBED__*/null;
 
-const TYPES = {goods:{label:"発売"}, prize:{label:"プライズ"}, cafe:{label:"カフェ"}, reserve:{label:"予約・抽選"}, deadline:{label:"締切"}, event:{label:"イベント"}};
+const TYPES = {goods:{label:"発売"}, prize:{label:"プライズ"}, cafe:{label:"カフェ"}, reserve:{label:"予約・抽選"}, collab:{label:"コラボ"}, deadline:{label:"締切"}, event:{label:"イベント"}};
 const CATN = {figure:"フィギュア",gacha:"カプセルトイ",prize:"プライズ",food:"食玩・食品",goods:"雑貨・グッズ",card:"カード・パズル",media:"書籍・映像",kuji:"くじ",apparel:"アパレル",event:"イベント",order:"受付・予約",cafe:"コラボカフェ",camp:"キャンペーン",bday:"誕生日"};
 const DOW = ["日","月","火","水","木","金","土"];
 let ITEMS = [];
-let on = {goods:true,prize:true,cafe:true,reserve:true,deadline:true,event:true};
+let on = {goods:true,prize:true,cafe:true,reserve:true,collab:true,deadline:true,event:true};
 try{ const s=JSON.parse(localStorage.getItem("kmt-filter")||"null"); if(s) on=Object.assign(on,s);}catch(e){}
 
 const now = new Date();
@@ -354,24 +360,25 @@ function gcal(it){
   return "https://calendar.google.com/calendar/render?"+p;
 }
 function whenText(it){
-  if(it.type==="deadline"||it.type==="event"||it.type==="cafe"){
+  if((it.type==="deadline"||it.type==="event"||it.type==="cafe"||it.type==="collab")&&!it.date&&it.start){const x=parse(it.start);return `${x.getMonth()+1}/${x.getDate()}（${DOW[x.getDay()]}）〜（なくなり次第終了）`;}
+  if((it.type==="deadline"||it.type==="event"||it.type==="cafe"||it.type==="collab")&&it.date){
     const e=parse(it.date), f=d=>`${d.getMonth()+1}/${d.getDate()}（${DOW[d.getDay()]}）`;
     return it.start ? `${f(parse(it.start))} 〜 ${f(e)}` : f(e);
   }
   if(it.date){const d=parse(it.date);return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日（${DOW[d.getDay()]}）`;}
   const [y,m]=(it.ym||"").split("-").map(Number);
-  return `${y}年${m}月${it.part||""}${it.part?"":"（日付未定）"}`;
+  return it.type==="collab" ? `${y}年${m}月${it.part||""}〜（なくなり次第終了）` : `${y}年${m}月${it.part||""}${it.part?"":"（日付未定）"}`;
 }
 function renderChips(){
   document.getElementById("chips").innerHTML = Object.keys(TYPES).map(k=>{
     const n=ITEMS.filter(i=>i.type===k).length;
-    return `<button class="chip${on[k]?"":" off"}" data-t="${k}"><i style="background:var(--c-${k})"></i>${k==="goods"?"グッズ発売":k==="cafe"?"カフェ・ダイニング":k==="reserve"?"カフェ予約・抽選":TYPES[k].label}<span style="color:var(--mute);font-weight:500">${n}</span></button>`;
+    return `<button class="chip${on[k]?"":" off"}" data-t="${k}"><i style="background:var(--c-${k})"></i>${k==="goods"?"グッズ発売":k==="cafe"?"カフェ・ダイニング":k==="reserve"?"カフェ予約・抽選":k==="collab"?"期間限定コラボ":TYPES[k].label}<span style="color:var(--mute);font-weight:500">${n}</span></button>`;
   }).join("");
 }
-function pill(it,day){ const pre = it.type==="reserve"?"🎟 ":it.type==="deadline"?"⏰ ":it.type==="cafe"?(day&&day===it.start?"☕開始 ":"☕最終日 "):""; return `<button class="pill ${it.type}" data-id="${esc(it.id)}" title="${esc(it.name)}">${pre}${esc(it.name)}</button>`; }
+function pill(it,day){ const pre = it.type==="reserve"?"🎟 ":it.type==="deadline"?"⏰ ":it.type==="cafe"?(day&&day===it.start?"☕開始 ":"☕最終日 "):it.type==="collab"?(day&&day===it.start?"🤝開始 ":"🤝最終日 "):""; return `<button class="pill ${it.type}" data-id="${esc(it.id)}" title="${esc(it.name)}">${pre}${esc(it.name)}</button>`; }
 function itemsOn(dateStr){
-  const O=["deadline","reserve","cafe","event","goods","prize"];
-  return ITEMS.filter(it=>visible(it)&&(it.date===dateStr||(it.type==="cafe"&&it.start===dateStr))).sort((a,b)=>O.indexOf(a.type)-O.indexOf(b.type));
+  const O=["deadline","reserve","cafe","collab","event","goods","prize"];
+  return ITEMS.filter(it=>visible(it)&&(it.date===dateStr||((it.type==="cafe"||it.type==="collab")&&it.start===dateStr))).sort((a,b)=>O.indexOf(a.type)-O.indexOf(b.type));
 }
 function renderCal(){
   document.getElementById("mlabel").innerHTML=`${cy}.${pad(cm)}<span>月</span>`;
@@ -403,11 +410,11 @@ function row(it,w){
   return `<button class="row" data-id="${esc(it.id)}"><span class="lb"><span class="lab ${it.type}">${it.type==="goods"?(CATN[it.cat]||"グッズ"):TYPES[it.type].label}</span></span><span class="w">${w}</span><span class="n">${esc(it.name)}${it.re?'<span class="re">再販</span>':""}</span><span class="mk">${esc(it.maker||"")}</span></button>`;
 }
 function renderDeadlines(){
-  const list=ITEMS.filter(it=>(it.type==="deadline"||it.type==="event"||it.type==="cafe")&&visible(it)&&it.date&&daysTo(it.date)>=0).sort((a,b)=>parse(a.date)-parse(b.date)).slice(0,12);
+  const list=ITEMS.filter(it=>(it.type==="deadline"||it.type==="event"||it.type==="cafe"||it.type==="collab")&&visible(it)&&it.date&&daysTo(it.date)>=0).sort((a,b)=>parse(a.date)-parse(b.date)).slice(0,12);
   document.getElementById("deadlines").innerHTML = list.map(it=>{
     const n=daysTo(it.date), d=parse(it.date);
     const started = !it.start || daysTo(it.start)<=0;
-    const w = it.type==="cafe"&&!started ? `${daysTo(it.start)}日後開始` : (n===0?"本日まで":`あと${n}日`);
+    const w = (it.type==="cafe"||it.type==="collab")&&!started ? `${daysTo(it.start)}日後開始` : (n===0?"本日まで":`あと${n}日`);
     return `<button class="row" data-id="${esc(it.id)}"><span class="lb"><span class="lab ${it.type}">${TYPES[it.type].label}</span></span><span class="w" style="${n<=3?"color:var(--red)":""}">${w}</span><span class="n">${esc(it.name)}</span><span class="mk">${d.getMonth()+1}/${d.getDate()}（${DOW[d.getDay()]}）</span></button>`;
   }).join("") || '<div class="empty">近い締切はありません</div>';
 }
@@ -416,19 +423,24 @@ function renderCafes(){
   const list=ITEMS.filter(it=>it.type==="cafe"&&it.date&&daysTo(it.date)>=0).sort((a,b)=>parse(a.date)-parse(b.date));
   document.getElementById("cafes").innerHTML = list.map(it=>`<button class="row cfr" data-id="${esc(it.id)}"><span class="p">${it.start?f(it.start)+"〜":""}${f(it.date)}</span><span class="n">${esc(it.name)}<small>${esc(it.maker||"")}</small></span><span class="mk">${it.reserve?"予約方法 ›":"詳細 ›"}</span></button>`).join("") || '<div class="empty">開催予定のカフェ・ダイニングはありません</div>';
 }
-function renderAll(){ renderChips(); renderCC(); renderCal(); renderCafes(); renderDeadlines(); }
+function renderCollabs(){
+  const f=d=>{const x=parse(d);return `${x.getMonth()+1}/${x.getDate()}（${DOW[x.getDay()]}）`;};
+  const list=ITEMS.filter(it=>it.type==="collab"&&visible(it)&&(!it.date||daysTo(it.date)>=0)).sort((a,b)=>(a.date?parse(a.date):9e15)-(b.date?parse(b.date):9e15));
+  document.getElementById("collabs").innerHTML = list.map(it=>`<button class="row cfr cl" data-id="${esc(it.id)}"><span class="p">${it.start?f(it.start)+"〜":(it.ym?Number(it.ym.slice(5))+"月"+(it.part||"")+"〜":"")}${it.date?f(it.date):"なくなり次第終了"}</span><span class="n">${esc(it.name)}<small>${esc(it.maker||"")}</small></span><span class="mk">詳細 ›</span></button>`).join("") || '<div class="empty">開催中・開催予定のコラボはありません</div>';
+}
+function renderAll(){ renderChips(); renderCC(); renderCal(); renderCafes(); renderCollabs(); renderDeadlines(); }
 
 function openItem(id){
   const it=ITEMS.find(x=>x.id===id); if(!it) return;
   const md=document.getElementById("md");
   md.className="md "+it.type;
-  const catLabel = it.type==="goods"?(CATN[it.cat]||"グッズ"):it.type==="prize"?"プライズ（UFOキャッチャー・オンクレ景品）":it.type==="cafe"?"カフェ・ダイニング":it.type==="reserve"?"カフェ予約・抽選":(CATN[it.cat]||TYPES[it.type].label);
+  const catLabel = it.type==="goods"?(CATN[it.cat]||"グッズ"):it.type==="prize"?"プライズ（UFOキャッチャー・オンクレ景品）":it.type==="cafe"?"カフェ・ダイニング":it.type==="collab"?"期間限定コラボ":it.type==="reserve"?"カフェ予約・抽選":(CATN[it.cat]||TYPES[it.type].label);
   const u=safeUrl(it.url), u2=safeUrl(it.url2);
   md.innerHTML=`<button class="x" aria-label="閉じる">×</button>
     <span class="lab ${it.type}">${catLabel}</span>${it.re?'<span class="re">再販</span>':""}
     <h3>${esc(it.name)}</h3>
     <dl>
-      <dt>${it.type==="reserve"?"日時":it.type==="deadline"?"締切":(it.type==="event"||it.type==="cafe")?"期間":it.type==="prize"?"登場":"発売"}</dt><dd>${whenText(it)}</dd>
+      <dt>${it.type==="reserve"?"日時":it.type==="deadline"?"締切":(it.type==="event"||it.type==="cafe"||it.type==="collab")?"期間":it.type==="prize"?"登場":"発売"}</dt><dd>${whenText(it)}</dd>
       ${it.maker?`<dt>メーカー</dt><dd>${esc(it.maker)}</dd>`:""}
       ${it.price?`<dt>価格</dt><dd>${esc(it.price)}</dd>`:""}
       ${it.note?`<dt>メモ</dt><dd>${esc(it.note)}</dd>`:""}
@@ -447,7 +459,7 @@ function openDay(s){
 function subText(it,s){
   const f=d=>{const x=parse(d);return `${x.getMonth()+1}/${x.getDate()}`;};
   const a=[];
-  if(it.type==="cafe") a.push(it.start===s?`今日から ${f(it.start)}〜${f(it.date)}`:`今日が最終日（${it.start?f(it.start)+"〜":""}${f(it.date)}）`);
+  if(it.type==="cafe"||it.type==="collab") a.push(it.start===s?`今日から ${f(it.start)}〜${f(it.date)}`:`今日が最終日（${it.start?f(it.start)+"〜":""}${f(it.date)}）`);
   else if(it.type==="deadline"||it.type==="event") a.push(it.start&&it.start!==it.date?`${f(it.start)}〜${f(it.date)}`:"");
   if(it.price) a.push(it.price);
   if(it.maker&&it.type!=="cafe") a.push(it.maker);
