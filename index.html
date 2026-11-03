@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鬼滅の刃 グッズ発売カレンダー（非公式まとめ）</title>
+<meta name="description" content="鬼滅の刃のグッズ発売日・プライズ登場日・ufotable Cafe／DININGの予約日程を、公式情報だけでまとめた非公式カレンダーです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111; --sub:#555; --mute:#999; --line:#e5e5e5; --bg:#fff; --soft:#f5f5f5;
+  --red:#e60012; --yellow:#ffe100; --blue:#1d5fd1;
+  --c-goods:#111; --c-prize:#ff7a00; --c-deadline:#e60012; --c-event:#1d5fd1; --c-cafe:#0e8a5f; --c-reserve:#7b3fe4;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Noto Sans JP",system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.5}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.topbar{background:var(--ink);color:#fff;font-size:11px}
+.topbar .wrap{display:flex;justify-content:space-between;padding:6px 16px;gap:10px}
+.topbar .upd{color:#bbb}
+header.mast{border-bottom:4px solid var(--ink)}
+header.mast .wrap{display:flex;align-items:center;gap:14px;padding:16px}
+.mark{background:var(--red);color:#fff;font-weight:900;font-size:13px;line-height:1.05;padding:8px 9px;letter-spacing:.04em;flex:none}
+.ttl{font-weight:900;font-size:clamp(20px,3.2vw,30px);letter-spacing:.02em;line-height:1.2;margin:0}
+.ttl small{display:block;font-size:12px;font-weight:700;color:var(--sub);letter-spacing:.08em}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:18px 0 12px}
+.mnav{display:flex;align-items:center;gap:6px}
+.mnav button{border:2px solid var(--ink);background:#fff;width:34px;height:34px;font-weight:900;cursor:pointer}
+.mnav button:hover{background:var(--ink);color:#fff}
+.mlabel{font-family:Oswald,"Noto Sans JP",sans-serif;font-weight:700;font-size:30px;letter-spacing:.02em;min-width:150px;text-align:center;line-height:1}
+.mlabel span{font-size:15px;margin-left:2px}
+.today-btn{border:2px solid var(--ink);background:var(--yellow);font-weight:900;padding:5px 12px;cursor:pointer}
+.chips{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:6px;border:2px solid var(--line);background:#fff;padding:5px 11px;font-weight:700;font-size:13px;cursor:pointer}
+.chip i{width:10px;height:10px;display:inline-block}
+.chip.off{opacity:.35}
+.chip:not(.off){border-color:var(--ink)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);border-top:2px solid var(--ink);border-left:1px solid var(--line)}
+.dow{font-weight:900;font-size:12px;text-align:center;padding:6px 0;border-right:1px solid var(--line);border-bottom:2px solid var(--ink);background:var(--soft)}
+.dow.sun{color:var(--red)} .dow.sat{color:var(--blue)}
+.day{min-height:118px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:4px 4px 6px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.day.other{background:#fafafa}
+.day.other .dn{color:#ccc}
+.dn{font-family:Oswald,sans-serif;font-weight:700;font-size:16px;line-height:1;padding:2px 3px 3px}
+.day.sun .dn{color:var(--red)} .day.sat .dn{color:var(--blue)}
+.day.today{background:#fffbe0;box-shadow:inset 0 0 0 2px var(--yellow)}
+.day.today .dn::after{content:"TODAY";font-size:9px;background:var(--ink);color:var(--yellow);padding:1px 4px;margin-left:5px;vertical-align:2px;letter-spacing:.05em}
+.pill{display:block;text-align:left;border:none;background:var(--soft);border-left:4px solid var(--c-goods);padding:2px 5px;font-size:11.5px;line-height:1.35;font-weight:700;cursor:pointer;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-all;max-height:calc(2.7em + 2px)}
+.pill:hover{background:#ececec}
+.pill.prize{border-color:var(--c-prize);background:#fff3e8}
+.pill.deadline{border-color:var(--c-deadline);background:#ffeef0;color:var(--red)}
+.pill.event{border-color:var(--c-event);background:#eef3fc}
+.pill.cafe{border-color:var(--c-cafe);background:#e8f6ef;color:#0b5e41}
+.pill.reserve{border-color:var(--c-reserve);background:#f3edfd;color:#5523b0}
+.cafes{border-top:2px solid var(--ink)}
+.cf{display:grid;grid-template-columns:150px 1fr;gap:6px 16px;padding:12px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.cf:hover{background:var(--soft)}
+.cf .p{font-weight:900;font-size:13px;color:var(--c-cafe)}
+.cf .n{font-weight:900}
+.cf .r{grid-column:2;font-size:12px;color:var(--sub);line-height:1.6}
+.cf .r b{color:var(--c-reserve)}
+@media (max-width:760px){.cf{grid-template-columns:1fr}.cf .r{grid-column:1}}
+.more{font-size:11px;font-weight:700;color:var(--sub);background:none;border:none;text-align:left;cursor:pointer;padding:0 5px}
+h2.sec{font-weight:900;font-size:18px;margin:34px 0 10px;display:flex;align-items:center;gap:8px}
+h2.sec::before{content:"";width:6px;height:20px;background:var(--red)}
+h2.sec small{font-size:12px;color:var(--sub);font-weight:500}
+.rows{border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:96px 92px 1fr auto;gap:12px;align-items:center;padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;width:100%;text-align:left}
+.row:hover{background:var(--soft)}
+.row .w{font-weight:900;font-size:13px}
+.row .n{font-weight:700}
+.row .mk{font-size:12px;color:var(--sub);white-space:nowrap}
+.lab{display:inline-block;white-space:nowrap;font-size:11px;font-weight:900;color:#fff;padding:2px 7px;text-align:center}
+.lab.goods{background:var(--c-goods)} .lab.prize{background:var(--c-prize)} .lab.deadline{background:var(--c-deadline)} .lab.event{background:var(--c-event)} .lab.cafe{background:var(--c-cafe)} .lab.reserve{background:var(--c-reserve)}
+.empty{padding:22px;text-align:center;color:var(--mute);border-bottom:1px solid var(--line)}
+.agenda{display:none}
+.ag-day{display:grid;grid-template-columns:54px 1fr;border-bottom:1px solid var(--line);padding:8px 0}
+.ag-d{font-family:Oswald,sans-serif;font-weight:700;font-size:22px;line-height:1;text-align:center}
+.ag-d small{display:block;font-family:"Noto Sans JP";font-size:11px;font-weight:700;margin-top:3px}
+.ag-day.sun .ag-d{color:var(--red)} .ag-day.sat .ag-d{color:var(--blue)}
+.ag-day.today{background:#fffbe0}
+.ag-items{display:flex;flex-direction:column;gap:4px;min-width:0}
+.ag-items .pill{-webkit-line-clamp:3;max-height:none;font-size:13px;padding:5px 8px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+.ov.on{display:flex}
+.md{background:#fff;max-width:480px;width:100%;border-top:6px solid var(--ink);padding:20px 22px 22px;position:relative;max-height:90vh;overflow:auto}
+.md.prize{border-color:var(--c-prize)} .md.deadline{border-color:var(--c-deadline)} .md.event{border-color:var(--c-event)} .md.cafe{border-color:var(--c-cafe)} .md.reserve{border-color:var(--c-reserve)}
+.md .x{position:absolute;top:10px;right:12px;border:none;background:none;font-size:22px;cursor:pointer;line-height:1}
+.md h3{font-size:18px;font-weight:900;margin:8px 0 12px;line-height:1.4;padding-right:20px}
+.md dl{display:grid;grid-template-columns:76px 1fr;gap:6px 10px;margin:0 0 16px;font-size:13px}
+.md dt{color:var(--sub);font-weight:700}
+.md dd{margin:0}
+.md .acts{display:flex;gap:8px;flex-wrap:wrap}
+.bt{border:2px solid var(--ink);background:#fff;padding:7px 12px;font-weight:900;font-size:13px;text-decoration:none;cursor:pointer}
+.bt.y{background:var(--yellow)}
+.re{display:inline-block;font-size:11px;font-weight:900;border:2px solid var(--ink);padding:0 5px;margin-left:6px}
+footer{margin-top:40px;background:var(--ink);color:#aaa;font-size:12px;padding:20px 0 30px}
+footer p{margin:4px 0}
+@media (max-width:760px){
+  .cal{display:none}
+  .agenda{display:block;border-top:2px solid var(--ink)}
+  .chips{margin-left:0;width:100%}
+  .row{grid-template-columns:70px 1fr;gap:4px 10px}
+  .row .lb{grid-row:1/3}
+  .row .mk{grid-column:2}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span>非公式ファンまとめ</span><span class="upd" id="upd"></span></div></div>
+<header class="mast"><div class="wrap">
+  <div class="mark">鬼滅<br>GOODS</div>
+  <h1 class="ttl"><small>DEMON SLAYER GOODS CALENDAR</small>鬼滅の刃 グッズ発売カレンダー</h1>
+</div></header>
+
+<main class="wrap">
+  <div class="bar">
+    <div class="mnav">
+      <button id="prev" aria-label="前の月">‹</button>
+      <div class="mlabel" id="mlabel"></div>
+      <button id="next" aria-label="次の月">›</button>
+    </div>
+    <button class="today-btn" id="todayBtn">今月</button>
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <div class="cal" id="cal"></div>
+  <div class="agenda" id="agenda"></div>
+
+  <h2 class="sec" id="undatedTtl"></h2>
+  <div class="rows" id="undated"></div>
+
+  <h2 class="sec">開催中・開催予定のカフェ・ダイニング<small>予約方法つき</small></h2>
+  <div class="cafes" id="cafes"></div>
+
+  <h2 class="sec">これからの締切・受付・カフェ<small>終了日が近い順</small></h2>
+  <div class="rows" id="deadlines"></div>
+</main>
+
+<footer><div class="wrap">
+  <p>掲載情報はすべて各メーカー・公式ショップの公式サイトで確認したもので、毎日更新しています。発売日・価格は変更されることがあるので、購入前に各公式サイトでご確認ください。「目安」と書かれた日時は公式Xの過去の告知から見込んだもので、確定情報ではありません。</p>
+  <p>本サイトは非公式のまとめです。©吾峠呼世晴／集英社・アニプレックス・ufotable</p>
+</div></footer>
+
+<div class="ov" id="ov"><div class="md" id="md"></div></div>
+
+<script>
+/* 最新データの置き場所（GitHub連携後に設定。空ならこのファイルに埋め込んだデータを表示） */
+const DATA_URL = "https://raw.githubusercontent.com/armerbeast19-gif/kimetsu-goods-calendar/main/data.json";
+/* このファイルを作った時点のデータ（予備） */
+const EMBED = {"updatedAt":"2026-11-03T13:30","items":[{"id":"c-agf-ikebukuro","type":"cafe","cat":"cafe","name":"ufotable CHARACTERS Cafe IKEBUKURO「AGFコラボ」","start":"2026-11-01","date":"2026-11-19","ym":"2026-11","maker":"ufotable","note":"記念ドリンク注文でコースター（ランダム1枚）","reserve":"ufotable Ticketで事前抽選。キャンセル分はufotable Ticketの「空席予約」から申込可","src":"ufotable公式","url":"https://www.ufotable.co.jp/agf_2026/"},{"id":"c-cafe-musunda-mugen2","type":"cafe","cat":"cafe","name":"ufotable Cafe「結んだ縁」無限列車編 第二期","start":"2026-11-03","date":"2026-11-23","ym":"2026-11","maker":"ufotable Cafe／マチ★アソビCAFE","note":"東京・名古屋・大阪・徳島・眉山・北九州。1組最大2名","reserve":"一次抽選：毎週水曜18:00〜木曜24:00（LivePocket）。対象は翌週火〜日の営業分／結果：毎週金曜12時頃から順次メール／入金締切：日曜／二次先着：キャンセルが出た週の月曜。18:00に二次チケット公開、20:00から先着（16時頃に各店舗Xで告知）。予約制は東京・名古屋・大阪。徳島・眉山・北九州はフリー入場","src":"ufotable Cafe（公式）","url":"https://www.ufotable.co.jp/cafe/collaboration/kimetu/","url2":"https://www.ufotable.co.jp/cafe/reservation/"},{"id":"c-dining-hiroma","type":"cafe","cat":"cafe","name":"ufotable DINING -HIROMA-「鬼襲来再来 2026」","start":"2026-10-15","date":"2026-12-16","ym":"2026-12","maker":"ufotable DINING -HIROMA-","price":"鬼コースメニュー 4,000円（税込）","note":"18時の回限定「鬼襲来ダイニング」。鬼コース（前菜・メイン・デザート）は木金土の夜限定、ランダムランチョンマット＋コースター付き","reserve":"ufotable Ticketで週ごとの事前抽選。公式Xの告知では、毎週土曜の昼ごろに次の週（水曜〜翌週火曜）分の受付が始まり、日曜23:59締切、月曜ごろに当選メール送信完了が告知されます（2026年9〜10月の実績）。当選者はメールから事前決済。キャンセル分は毎日18:00に空席情報が解放され先着で予約可","src":"ufotable公式","url":"https://www.ufotable.co.jp/kimetsu/event/demonspickup/return2026/","url2":"https://ticket.ufotable.co.jp/"},{"id":"c-dining-shinjuku","type":"cafe","cat":"cafe","name":"ufotable DINING「鬼襲来再来 2026」","start":"2026-10-15","date":"2026-12-16","ym":"2026-12","maker":"ufotable DINING（新宿）","note":"完全予約制。描き下ろし鬼イラストのグッズを店頭販売","reserve":"ufotable Ticketで週ごとの事前抽選。公式Xの告知では、毎週土曜の昼ごろに次の週（水曜〜翌週火曜）分の受付が始まり、日曜23:59締切、月曜ごろに当選メール送信完了が告知されます（2026年9〜10月の実績）。当選者はメールから事前決済。キャンセル分は毎日18:00に空席情報が解放され先着で予約可","src":"ufotable公式","url":"https://www.ufotable.co.jp/kimetsu/event/demonspickup/return2026/","url2":"https://ticket.ufotable.co.jp/"},{"id":"c-mocktail-ginza","type":"cafe","cat":"cafe","name":"ufotable MOCKTAIL BAR GINZA「鬼襲来再来 2026」","start":"2026-10-16","date":"2026-12-16","ym":"2026-12","maker":"ufotable MOCKTAIL BAR GINZA","price":"鬼モクテル 1,300〜1,800円","note":"鬼をテーマにしたモクテル全5種（無惨・黒死牟・童磨・猗窩座・獪岳）。新デザインのコースター","reserve":"ufotable Ticketで週ごとの事前抽選。公式Xの告知では、毎週土曜の昼ごろに次の週（水曜〜翌週火曜）分の受付が始まり、日曜23:59締切、月曜ごろに当選メール送信完了が告知されます（2026年9〜10月の実績）。当選者はメールから事前決済。キャンセル分は毎日18:00に空席情報が解放され先着で予約可","src":"ufotable公式","url":"https://www.ufotable.co.jp/kimetsu/event/demonspickup/return2026/","url2":"https://ticket.ufotable.co.jp/"},{"id":"c-uzui-bday","type":"cafe","cat":"cafe","name":"宇髄天元誕生祭2026（ufotable各店）","start":"2026-10-31","date":"2026-11-23","ym":"2026-11","maker":"ufotable","note":"店舗により終了日が異なる場合あり（英語版公式ページでは11/25まで）","reserve":"各店舗の予約方法に準じる（カフェはLivePocket、DININGはufotable Ticket）","src":"ufotable公式","url":"https://www.ufotable.co.jp/kimetsu/event/BD/kmt_uzuiBD_2026/"},{"id":"d-agf-webshop","type":"deadline","cat":"order","name":"AGF2026 グッズ WEBSHOP販売 終了","start":"2026-11-07","date":"2026-11-30","ym":"2026-11","maker":"ufotable","note":"11/7 10:00〜11/30 24:00（在庫＆受注）","src":"ufotable公式","url":"https://www.ufotable.co.jp/agf_2026/"},{"id":"d-cafe-mugen2","type":"deadline","cat":"order","name":"再放送カフェ 無限列車編 第二期グッズ 受付終了","start":"2026-10-28","date":"2026-11-24","ym":"2026-11","maker":"ufotable","note":"11/24 24:00まで（在庫・受注）","src":"ufotable WEBSHOP（公式）","url":"https://webshop.ufotable.co.jp/"},{"id":"d-tsunagaru","type":"deadline","cat":"order","name":"鬼襲来再来＆無限城編第一章 繋がるイラストグッズ 受付終了","start":"2026-10-15","date":"2026-12-16","ym":"2026-12","maker":"ufotable","note":"12/16 24:00まで（在庫・受注）","src":"ufotable WEBSHOP（公式）","url":"https://webshop.ufotable.co.jp/"},{"id":"d-ufo-kuji","type":"deadline","cat":"order","name":"炭治郎＆煉獄 WEBSHOPくじ 受付終了","start":"2026-10-17","date":"2026-11-09","ym":"2026-11","maker":"ufotable","note":"11/9 24:00まで","src":"ufotable WEBSHOP（公式）","url":"https://webshop.ufotable.co.jp/"},{"id":"d-uzui-bday","type":"deadline","cat":"order","name":"宇髄天元 誕生祭グッズ2026 受付終了","start":"2026-10-31","date":"2026-11-24","ym":"2026-11","maker":"ufotable","note":"11/24 24:00まで","src":"ufotable WEBSHOP（公式）","url":"https://webshop.ufotable.co.jp/"},{"id":"e-agf2026","type":"event","cat":"event","name":"AGF2026 ufotable出展","start":"2026-11-07","date":"2026-11-08","ym":"2026-11","maker":"ufotable","note":"会場でグッズ販売","src":"ufotable公式","url":"https://www.ufotable.co.jp/agf_2026/"},{"id":"e-tamashii-yoyaku","type":"event","cat":"order","name":"S.H.Figuarts 時透無一郎・再販5種 予約開始","date":"2026-11-02","ym":"2026-11","maker":"BANDAI SPIRITS","note":"2027年5〜6月発売","src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/16147/"},{"id":"g-bookmark","type":"goods","cat":"goods","name":"ブックマークコレクション 鬼滅の刃","date":"2026-11-16","ym":"2026-11","maker":"バンダイ","price":"110円（税込）","src":"バンダイ公式","url":"https://www.bandai.co.jp/catalog/item.php?jan_cd=4582770092905000"},{"id":"g-buzz-giyu2","type":"goods","cat":"figure","name":"BUZZmod. 鬼滅の刃 冨岡義勇 Ver.2","date":null,"ym":"2026-11","maker":"アニプレックス","price":"11,000円（税込）","note":"受注生産。2026年11月より順次お届け","src":"アニプレックス オンライン（公式）","url":"https://online.aniplex.co.jp/itemQUPebePT02.html"},{"id":"g-buzz-tanjiro2","type":"goods","cat":"figure","name":"BUZZmod. 鬼滅の刃 竈門炭治郎 Ver.2","date":null,"ym":"2026-11","maker":"アニプレックス","price":"11,000円（税込）","note":"受注生産。2026年11月より順次お届け","src":"アニプレックス オンライン（公式）","url":"https://online.aniplex.co.jp/itemQUPebePT01.html"},{"id":"g-epoch-galaxy","type":"goods","cat":"card","name":"2026 EPOCH 鬼滅の刃 トレーディングカード GALAXY EDITION","date":"2026-11-28","ym":"2026-11","maker":"エポック社","price":"1パック880円／1BOX 17,600円（税込）","src":"エポック社公式","url":"https://epoch.jp/cd/products/?detail=58462"},{"id":"g-fzero-akaza","type":"goods","cat":"figure","name":"フィギュアーツZERO 猗窩座 上弦の参","date":null,"ym":"2026-12","maker":"BANDAI SPIRITS","price":"9,900円（税込）","re":true,"src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/15881/"},{"id":"g-fzero-giyu","type":"goods","cat":"figure","name":"フィギュアーツZERO 冨岡義勇 水の呼吸","date":null,"ym":"2026-12","maker":"BANDAI SPIRITS","price":"9,900円（税込）","re":true,"src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/15882/"},{"id":"g-fzero-shinobu","type":"goods","cat":"figure","name":"フィギュアーツZERO 胡蝶しのぶ 蟲の呼吸","date":"2026-11-21","ym":"2026-11","maker":"BANDAI SPIRITS","price":"9,900円（税込）","re":true,"src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/15880/"},{"id":"g-gem-giyu","type":"goods","cat":"figure","name":"G.E.M.シリーズ 鬼滅の刃 てのひら義勇さん","date":null,"ym":"2026-11","part":"下旬","maker":"メガハウス","price":"8,580円（税込）","re":true,"src":"メガホビ（公式）","url":"https://www.megahobby.jp/products/item/5751/"},{"id":"g-gem-shinobu","type":"goods","cat":"figure","name":"G.E.M.シリーズ 鬼滅の刃 てのひらしのぶさん","date":null,"ym":"2027-02","part":"下旬","maker":"メガハウス","price":"8,580円（税込）","re":true,"src":"メガホビ（公式）","url":"https://www.megahobby.jp/squeeze/chara/kimetsunoyaiba/"},{"id":"g-nendo-doma","type":"goods","cat":"figure","name":"ねんどろいど 童磨","date":null,"ym":"2026-11","maker":"グッドスマイルカンパニー","price":"7,300円（税込）","note":"2026年11月出荷予定","src":"グッドスマイルカンパニー（公式）","url":"https://www.goodsmile.com/en/product/1140601/Nendoroid+Doma"},{"id":"g-onemu10","type":"goods","cat":"gacha","name":"おねむたん 鬼滅の刃 拾ノ型","date":null,"ym":"2026-10","maker":"スタンド・ストーンズ","price":"1回400円（税込）","note":"カプセルトイ","re":true,"src":"スタンド・ストーンズ（公式）","url":"https://stasto.co.jp/products_ss/onemukimetsu10/"},{"id":"g-onemu10-nidone","type":"goods","cat":"gacha","name":"おねむたん 鬼滅の刃 拾ノ型 にどね アースカラーVer.","date":null,"ym":"2026-10","maker":"スタンド・ストーンズ","price":"1回400円（税込）","note":"カプセルトイ","re":true,"src":"スタンド・ストーンズ（公式）","url":"https://stasto.co.jp/products_ss/onemukimetsunidone11/"},{"id":"g-onemu7","type":"goods","cat":"gacha","name":"おねむたん 鬼滅の刃 漆ノ型","date":null,"ym":"2026-11","maker":"スタンド・ストーンズ","price":"1回400円（税込）","note":"カプセルトイ","re":true,"src":"スタンド・ストーンズ（公式）","url":"https://stasto.co.jp/products_ss/omemukimetsu07pc/"},{"id":"g-rukap-hakuji","type":"goods","cat":"figure","name":"るかっぷ 鬼滅の刃 狛治","date":null,"ym":"2027-01","part":"下旬","maker":"メガハウス","price":"4,620円（税込）","note":"恋雪と同時発売","src":"メガホビ（公式）","url":"https://www.megahobby.jp/products/item/5954"},{"id":"g-rukap-koyuki","type":"goods","cat":"figure","name":"るかっぷ 鬼滅の刃 恋雪","date":null,"ym":"2027-01","part":"下旬","maker":"メガハウス","price":"4,620円（税込）","note":"狛治＆恋雪セット（限定座布団付き）は9,350円","src":"メガホビ（公式）","url":"https://www.megahobby.jp/products/item/5953"},{"id":"g-rukap-uzui","type":"goods","cat":"figure","name":"るかっぷ 鬼滅の刃 宇髄天元 元音柱ver.","date":null,"ym":"2026-11","part":"下旬","maker":"メガハウス","price":"4,400円（税込）","note":"限定座布団付きセットは4,510円","src":"メガホビ（公式）","url":"https://www.megahobby.jp/products/item/5879/"},{"id":"g-shf-akaza-re","type":"goods","cat":"figure","name":"S.H.Figuarts 猗窩座","date":null,"ym":"2027-05","maker":"BANDAI SPIRITS","price":"9,900円（税込）","re":true,"src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/16161/"},{"id":"g-shf-doma","type":"goods","cat":"figure","name":"S.H.Figuarts 童磨","date":"2026-11-21","ym":"2026-11","maker":"BANDAI SPIRITS","price":"11,000円（税込）","note":"全高約155mm","src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/15845/"},{"id":"g-shf-doma-re","type":"goods","cat":"figure","name":"S.H.Figuarts 童磨","date":null,"ym":"2027-06","maker":"BANDAI SPIRITS","price":"11,000円（税込）","re":true,"src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/16164/"},{"id":"g-shf-inosuke-re","type":"goods","cat":"figure","name":"S.H.Figuarts 嘴平伊之助","date":null,"ym":"2027-06","maker":"BANDAI SPIRITS","price":"9,900円（税込）","re":true,"src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/16162/"},{"id":"g-shf-muichiro","type":"goods","cat":"figure","name":"S.H.Figuarts 時透無一郎","date":null,"ym":"2027-05","maker":"BANDAI SPIRITS","price":"9,900円（税込）","src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/16147/"},{"id":"g-shf-nezuko-re","type":"goods","cat":"figure","name":"S.H.Figuarts 竈門禰豆子","date":null,"ym":"2027-04","maker":"BANDAI SPIRITS","price":"8,250円（税込）","re":true,"src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/16159/"},{"id":"g-shf-rengoku-re","type":"goods","cat":"figure","name":"S.H.Figuarts 煉獄杏寿郎","date":null,"ym":"2027-05","maker":"BANDAI SPIRITS","price":"9,350円（税込）","re":true,"src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/16160/"},{"id":"g-shf-shinobu-re","type":"goods","cat":"figure","name":"S.H.Figuarts 胡蝶しのぶ","date":null,"ym":"2027-06","maker":"BANDAI SPIRITS","price":"11,000円（税込）","re":true,"src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/16163/"},{"id":"g-shf-uzui","type":"goods","cat":"figure","name":"S.H.Figuarts 宇髄天元","date":null,"ym":"2027-04","maker":"BANDAI SPIRITS","price":"12,100円（税込）","src":"魂ウェブ（公式）","url":"https://tamashiiweb.com/item/16085/"},{"id":"g-wafer16","type":"goods","cat":"food","name":"にふぉるめーしょん 鬼滅の刃ディフォルメシールウエハース 其ノ十六","date":"2026-11-09","ym":"2026-11","maker":"バンダイ","price":"154円（税込）","note":"シール全39種（うちシークレット3種）","src":"バンダイ キャンディ公式","url":"https://www.bandai.co.jp/candy/products/2026/4570117934162000.html"},{"id":"p-acryl-namco","type":"prize","cat":"prize","name":"スタンド付きアクリルプレート／ホログラム缶バッジ～捌ノ章 in ナムコ～","date":"2026-10-23","ym":"2026-10","maker":"バンプレスト","note":"ナムコ限定","src":"バンプレストナビ（公式）","url":"https://bsp-prize.jp/item/2854138/"},{"id":"p-chibigurumi-namco","type":"prize","cat":"prize","name":"ちびぐるみ vol.1／vol.2～捌ノ章 in ナムコ～","date":"2026-10-23","ym":"2026-10","maker":"バンプレスト","note":"ナムコ限定","src":"バンプレストナビ（公式）","url":"https://bsp-prize.jp/item/2853657/"},{"id":"p-figurizm-mitsuri","type":"prize","cat":"prize","name":"FIGURIZMα 甘露寺蜜璃","date":"2026-12-04","ym":"2026-12","maker":"セガ","note":"全長約13×21cm。12/4より順次登場","src":"セガプラザ（公式）","url":"https://segaplaza.jp/prize/D123507/"},{"id":"p-grandista-akaza2","type":"prize","cat":"prize","name":"Grandista -AKAZA- Ⅱ","date":"2026-11-27","ym":"2026-11","maker":"バンプレスト","note":"11/27より順次登場","src":"バンプレストナビ（公式）","url":"https://bsp-prize.jp/item/2834946/"},{"id":"p-howanui4","type":"prize","cat":"prize","name":"ほわぬい vol.4","date":"2026-11-25","ym":"2026-11","maker":"バンプレスト","note":"11/25より順次登場","src":"バンプレストナビ（公式）","url":"https://bsp-prize.jp/item/2834943/"},{"id":"p-luminasta-giyu","type":"prize","cat":"prize","name":"Luminasta 冨岡義勇 覚醒","date":"2026-11-20","ym":"2026-11","maker":"セガ","note":"全長約16×15cm。11/20より順次登場","src":"セガプラザ（公式）","url":"https://segaplaza.jp/prize/D123489/"},{"id":"p-maximatic-akaza","type":"prize","cat":"prize","name":"MAXIMATIC AKAZA","date":"2026-10-29","ym":"2026-10","maker":"バンプレスト","note":"10/29より順次登場","src":"バンプレストナビ（公式）","url":"https://bsp-prize.jp/item/2847550/"},{"id":"p-maximatic-giyu2","type":"prize","cat":"prize","name":"MAXIMATIC GIYU TOMIOKA Ⅱ","date":"2026-10-29","ym":"2026-10","maker":"バンプレスト","note":"10/29より順次登場","src":"バンプレストナビ（公式）","url":"https://bsp-prize.jp/item/2830561/"},{"id":"p-maximatic-tanjiro3","type":"prize","cat":"prize","name":"MAXIMATIC TANJIRO KAMADO Ⅲ","date":"2026-10-27","ym":"2026-10","maker":"バンプレスト","note":"10/27より順次登場","src":"バンプレストナビ（公式）","url":"https://bsp-prize.jp/item/2830560/"},{"id":"p-nuigurumirror","type":"prize","cat":"prize","name":"ぬいぐるミラー～炭子・善子・猪子～","date":"2026-11-19","ym":"2026-11","maker":"バンプレスト","note":"11/19より順次登場","src":"バンプレストナビ（公式）","url":"https://bsp-prize.jp/item/2882820/"},{"id":"p-xstellar-akaza","type":"prize","cat":"prize","name":"XStellar 猗窩座 再来","date":"2026-10-09","ym":"2026-10","maker":"セガ","note":"全長約11×20cm。10/9より順次登場","src":"セガプラザ（公式）","url":"https://segaplaza.jp/prize/D123452/"},{"id":"p-yunomi","type":"prize","cat":"prize","name":"湯呑＆小皿セット～狛治・恋雪～","date":"2026-10-15","ym":"2026-10","maker":"バンプレスト","note":"10/15より順次登場","src":"バンプレストナビ（公式）","url":"https://bsp-prize.jp/item/2881251/"},{"id":"r-cafe-2nd-1104","type":"reserve","cat":"order","name":"ufotable Cafe 二次先着予約（18:00チケット公開・20:00〜）","date":"2026-11-09","ym":"2026-11","maker":"ufotable Cafe","note":"キャンセルが出た週のみ実施。当日16時頃に各店舗公式Xで告知","src":"ufotable Cafe（公式）","url":"https://www.ufotable.co.jp/cafe/reservation/"},{"id":"r-cafe-2nd-1111","type":"reserve","cat":"order","name":"ufotable Cafe 二次先着予約（18:00チケット公開・20:00〜）","date":"2026-11-16","ym":"2026-11","maker":"ufotable Cafe","note":"キャンセルが出た週のみ実施。当日16時頃に各店舗公式Xで告知","src":"ufotable Cafe（公式）","url":"https://www.ufotable.co.jp/cafe/reservation/"},{"id":"r-cafe-2nd-1118","type":"reserve","cat":"order","name":"ufotable Cafe 二次先着予約（18:00チケット公開・20:00〜）","date":"2026-11-23","ym":"2026-11","maker":"ufotable Cafe","note":"キャンセルが出た週のみ実施。当日16時頃に各店舗公式Xで告知","src":"ufotable Cafe（公式）","url":"https://www.ufotable.co.jp/cafe/reservation/"},{"id":"r-cafe-lot-1104","type":"reserve","cat":"order","name":"ufotable Cafe 一次抽選 受付開始（18:00〜）","date":"2026-11-04","ym":"2026-11","maker":"ufotable Cafe","note":"締切 11/5（木）24:00。対象は翌週火〜日（11/10〜11/15）の営業分の見込み。確定した対象日は当日の各店舗公式Xで告知","src":"ufotable Cafe（公式）","url":"https://www.ufotable.co.jp/cafe/reservation/"},{"id":"r-cafe-lot-1111","type":"reserve","cat":"order","name":"ufotable Cafe 一次抽選 受付開始（18:00〜）","date":"2026-11-11","ym":"2026-11","maker":"ufotable Cafe","note":"締切 11/12（木）24:00。対象は翌週火〜日（11/17〜11/22）の営業分の見込み。確定した対象日は当日の各店舗公式Xで告知","src":"ufotable Cafe（公式）","url":"https://www.ufotable.co.jp/cafe/reservation/"},{"id":"r-cafe-lot-1118","type":"reserve","cat":"order","name":"ufotable Cafe 一次抽選 受付開始（18:00〜）","date":"2026-11-18","ym":"2026-11","maker":"ufotable Cafe","note":"締切 11/19（木）24:00。対象は翌週火〜日（11/24〜11/29）の営業分の見込み。確定した対象日は当日の各店舗公式Xで告知","src":"ufotable Cafe（公式）","url":"https://www.ufotable.co.jp/cafe/reservation/"},{"id":"r-cafe-res-1104","type":"reserve","cat":"order","name":"ufotable Cafe 一次抽選 結果発表（12時頃〜）","date":"2026-11-06","ym":"2026-11","maker":"ufotable Cafe","note":"メールで順次通知。入金締切は日曜","src":"ufotable Cafe（公式）","url":"https://www.ufotable.co.jp/cafe/reservation/"},{"id":"r-cafe-res-1111","type":"reserve","cat":"order","name":"ufotable Cafe 一次抽選 結果発表（12時頃〜）","date":"2026-11-13","ym":"2026-11","maker":"ufotable Cafe","note":"メールで順次通知。入金締切は日曜","src":"ufotable Cafe（公式）","url":"https://www.ufotable.co.jp/cafe/reservation/"},{"id":"r-cafe-res-1118","type":"reserve","cat":"order","name":"ufotable Cafe 一次抽選 結果発表（12時頃〜）","date":"2026-11-20","ym":"2026-11","maker":"ufotable Cafe","note":"メールで順次通知。入金締切は日曜","src":"ufotable Cafe（公式）","url":"https://www.ufotable.co.jp/cafe/reservation/"},{"id":"r-din-lot-1107","type":"reserve","cat":"order","name":"ufotable DINING 抽選受付（目安：昼ごろ〜翌日23:59）","date":"2026-11-07","ym":"2026-11","maker":"ufotable DINING各店","note":"11/11〜11/17分の受付の見込み。締切は11/8（日）23:59。DINING・HIROMA・GINZA。正確な日時は当日の公式Xとufotable Ticketで確認","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-lot-1114","type":"reserve","cat":"order","name":"ufotable DINING 抽選受付（目安：昼ごろ〜翌日23:59）","date":"2026-11-14","ym":"2026-11","maker":"ufotable DINING各店","note":"11/18〜11/24分の受付の見込み。締切は11/15（日）23:59。DINING・HIROMA・GINZA。正確な日時は当日の公式Xとufotable Ticketで確認","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-lot-1121","type":"reserve","cat":"order","name":"ufotable DINING 抽選受付（目安：昼ごろ〜翌日23:59）","date":"2026-11-21","ym":"2026-11","maker":"ufotable DINING各店","note":"11/25〜12/1分の受付の見込み。締切は11/22（日）23:59。DINING・HIROMA・GINZA。正確な日時は当日の公式Xとufotable Ticketで確認","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-lot-1128","type":"reserve","cat":"order","name":"ufotable DINING 抽選受付（目安：昼ごろ〜翌日23:59）","date":"2026-11-28","ym":"2026-11","maker":"ufotable DINING各店","note":"12/2〜12/8分の受付の見込み。締切は11/29（日）23:59。DINING・HIROMA・GINZA。正確な日時は当日の公式Xとufotable Ticketで確認","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-lot-1205","type":"reserve","cat":"order","name":"ufotable DINING 抽選受付（目安：昼ごろ〜翌日23:59）","date":"2026-12-05","ym":"2026-12","maker":"ufotable DINING各店","note":"12/9〜12/15分の受付の見込み。締切は12/6（日）23:59。DINING・HIROMA・GINZA。正確な日時は当日の公式Xとufotable Ticketで確認","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-lot-1212","type":"reserve","cat":"order","name":"ufotable DINING 抽選受付（目安：昼ごろ〜翌日23:59）","date":"2026-12-12","ym":"2026-12","maker":"ufotable DINING各店","note":"12/16（最終日）分の受付の見込み。締切は12/13（日）23:59。DINING・HIROMA・GINZA。正確な日時は当日の公式Xとufotable Ticketで確認","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-res-1107","type":"reserve","cat":"order","name":"ufotable DINING 当選メール送信（目安）","date":"2026-11-09","ym":"2026-11","maker":"ufotable DINING各店","note":"当選者のみメール。送信完了は公式Xで告知。メールから事前決済","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-res-1114","type":"reserve","cat":"order","name":"ufotable DINING 当選メール送信（目安）","date":"2026-11-16","ym":"2026-11","maker":"ufotable DINING各店","note":"当選者のみメール。送信完了は公式Xで告知。メールから事前決済","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-res-1121","type":"reserve","cat":"order","name":"ufotable DINING 当選メール送信（目安）","date":"2026-11-23","ym":"2026-11","maker":"ufotable DINING各店","note":"当選者のみメール。送信完了は公式Xで告知。メールから事前決済","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-res-1128","type":"reserve","cat":"order","name":"ufotable DINING 当選メール送信（目安）","date":"2026-11-30","ym":"2026-11","maker":"ufotable DINING各店","note":"当選者のみメール。送信完了は公式Xで告知。メールから事前決済","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-res-1205","type":"reserve","cat":"order","name":"ufotable DINING 当選メール送信（目安）","date":"2026-12-07","ym":"2026-12","maker":"ufotable DINING各店","note":"当選者のみメール。送信完了は公式Xで告知。メールから事前決済","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"},{"id":"r-din-res-1212","type":"reserve","cat":"order","name":"ufotable DINING 当選メール送信（目安）","date":"2026-12-14","ym":"2026-12","maker":"ufotable DINING各店","note":"当選者のみメール。送信完了は公式Xで告知。メールから事前決済","src":"ufotable DINING 公式X（告知の傾向）","url":"https://x.com/ufotable_dining","url2":"https://ticket.ufotable.co.jp/"}]};
+
+const TYPES = {goods:{label:"発売"}, prize:{label:"プライズ"}, cafe:{label:"カフェ"}, reserve:{label:"予約・抽選"}, deadline:{label:"締切"}, event:{label:"イベント"}};
+const CATN = {figure:"フィギュア",gacha:"カプセルトイ",prize:"プライズ",food:"食玩・食品",goods:"雑貨・グッズ",card:"カード・パズル",media:"書籍・映像",kuji:"くじ",apparel:"アパレル",event:"イベント",order:"受付・予約",cafe:"コラボカフェ",camp:"キャンペーン",bday:"誕生日"};
+const DOW = ["日","月","火","水","木","金","土"];
+let ITEMS = [];
+let on = {goods:true,prize:true,cafe:true,reserve:true,deadline:true,event:true};
+try{ const s=JSON.parse(localStorage.getItem("kmt-filter")||"null"); if(s) on=Object.assign(on,s);}catch(e){}
+
+const now = new Date();
+const TODAY = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+let cy = TODAY.getFullYear(), cm = TODAY.getMonth()+1;
+
+const pad=n=>String(n).padStart(2,"0");
+const ymd=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const parse=s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d);};
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const daysTo=s=>Math.round((parse(s)-TODAY)/86400000);
+const visible=it=>on[it.type]!==false;
+const safeUrl=u=>/^https?:\/\//.test(u||"")?u:"";
+
+function gcal(it){
+  const f=d=>d.replace(/-/g,"");
+  const s = it.type==="deadline" ? it.date : (it.start||it.date);
+  const e = new Date(parse(it.date).getTime()+86400000);
+  const p=new URLSearchParams({action:"TEMPLATE",text:"【鬼滅】"+it.name+(it.type==="deadline"?" 締切":it.type==="goods"?" 発売":it.type==="prize"?" 登場":""),dates:`${f(s)}/${f(ymd(e))}`,details:(it.note||"")+(it.url?"\n"+it.url:"")});
+  return "https://calendar.google.com/calendar/render?"+p;
+}
+function whenText(it){
+  if(it.type==="deadline"||it.type==="event"||it.type==="cafe"){
+    const e=parse(it.date), f=d=>`${d.getMonth()+1}/${d.getDate()}（${DOW[d.getDay()]}）`;
+    return it.start ? `${f(parse(it.start))} 〜 ${f(e)}` : f(e);
+  }
+  if(it.date){const d=parse(it.date);return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日（${DOW[d.getDay()]}）`;}
+  const [y,m]=(it.ym||"").split("-").map(Number);
+  return `${y}年${m}月${it.part||""}${it.part?"":"（日付未定）"}`;
+}
+function renderChips(){
+  document.getElementById("chips").innerHTML = Object.keys(TYPES).map(k=>{
+    const n=ITEMS.filter(i=>i.type===k).length;
+    return `<button class="chip${on[k]?"":" off"}" data-t="${k}"><i style="background:var(--c-${k})"></i>${k==="goods"?"グッズ発売":k==="cafe"?"カフェ・ダイニング":k==="reserve"?"カフェ予約・抽選":TYPES[k].label}<span style="color:var(--mute);font-weight:500">${n}</span></button>`;
+  }).join("");
+}
+function pill(it,day){ const pre = it.type==="reserve"?"🎟 ":it.type==="deadline"?"⏰ ":it.type==="cafe"?(day&&day===it.start?"☕開始 ":"☕最終日 "):""; return `<button class="pill ${it.type}" data-id="${esc(it.id)}" title="${esc(it.name)}">${pre}${esc(it.name)}</button>`; }
+function itemsOn(dateStr){
+  const O=["deadline","reserve","cafe","event","goods","prize"];
+  return ITEMS.filter(it=>visible(it)&&(it.date===dateStr||(it.type==="cafe"&&it.start===dateStr))).sort((a,b)=>O.indexOf(a.type)-O.indexOf(b.type));
+}
+function renderCal(){
+  document.getElementById("mlabel").innerHTML=`${cy}.${pad(cm)}<span>月</span>`;
+  const first=new Date(cy,cm-1,1), start=new Date(first); start.setDate(1-first.getDay());
+  const last=new Date(cy,cm,0), end=new Date(last); end.setDate(last.getDate()+(6-last.getDay()));
+  let html=DOW.map((d,i)=>`<div class="dow${i===0?" sun":i===6?" sat":""}">${d}</div>`).join("");
+  let ag="";
+  for(let d=new Date(start); d<=end; d.setDate(d.getDate()+1)){
+    const s=ymd(d), other=d.getMonth()!==cm-1, w=d.getDay();
+    const list=itemsOn(s), isT=s===ymd(TODAY);
+    const cls=`day${other?" other":""}${w===0?" sun":w===6?" sat":""}${isT?" today":""}`;
+    const MAX=4, shown=list.slice(0,MAX);
+    html+=`<div class="${cls}"><div class="dn">${d.getDate()}</div>${shown.map(x=>pill(x,s)).join("")}${list.length>MAX?`<button class="more" data-day="${s}">ほか${list.length-MAX}件</button>`:""}</div>`;
+    if(!other && list.length) ag+=`<div class="ag-day${w===0?" sun":w===6?" sat":""}${isT?" today":""}"><div class="ag-d">${d.getDate()}<small>${DOW[w]}</small></div><div class="ag-items">${list.map(x=>pill(x,s)).join("")}</div></div>`;
+  }
+  document.getElementById("cal").innerHTML=html;
+  document.getElementById("agenda").innerHTML=ag||'<div class="empty">この月に日付が決まっている予定はありません</div>';
+  const ymKey=`${cy}-${pad(cm)}`, PO={"上旬":1,"中旬":2,"下旬":3};
+  const und=ITEMS.filter(it=>visible(it)&&!it.date&&it.ym===ymKey).sort((a,b)=>(PO[a.part]||9)-(PO[b.part]||9)||a.type.localeCompare(b.type));
+  document.getElementById("undatedTtl").innerHTML=`${cm}月発売・登場（日付未定）<small>${und.length}件</small>`;
+  document.getElementById("undated").innerHTML = und.map(it=>row(it, it.part?`${cm}月${it.part}`:`${cm}月中`)).join("") || '<div class="empty">ありません</div>';
+}
+function row(it,w){
+  return `<button class="row" data-id="${esc(it.id)}"><span class="lb"><span class="lab ${it.type}">${it.type==="goods"?(CATN[it.cat]||"グッズ"):TYPES[it.type].label}</span></span><span class="w">${w}</span><span class="n">${esc(it.name)}${it.re?'<span class="re">再販</span>':""}</span><span class="mk">${esc(it.maker||"")}</span></button>`;
+}
+function renderDeadlines(){
+  const list=ITEMS.filter(it=>(it.type==="deadline"||it.type==="event"||it.type==="cafe")&&visible(it)&&it.date&&daysTo(it.date)>=0).sort((a,b)=>parse(a.date)-parse(b.date)).slice(0,12);
+  document.getElementById("deadlines").innerHTML = list.map(it=>{
+    const n=daysTo(it.date), d=parse(it.date);
+    const started = !it.start || daysTo(it.start)<=0;
+    const w = it.type==="cafe"&&!started ? `${daysTo(it.start)}日後開始` : (n===0?"本日まで":`あと${n}日`);
+    return `<button class="row" data-id="${esc(it.id)}"><span class="lb"><span class="lab ${it.type}">${TYPES[it.type].label}</span></span><span class="w" style="${n<=3?"color:var(--red)":""}">${w}</span><span class="n">${esc(it.name)}</span><span class="mk">${d.getMonth()+1}/${d.getDate()}（${DOW[d.getDay()]}）</span></button>`;
+  }).join("") || '<div class="empty">近い締切はありません</div>';
+}
+function renderCafes(){
+  const f=d=>{const x=parse(d);return `${x.getMonth()+1}/${x.getDate()}（${DOW[x.getDay()]}）`;};
+  const list=ITEMS.filter(it=>it.type==="cafe"&&it.date&&daysTo(it.date)>=0).sort((a,b)=>parse(a.date)-parse(b.date));
+  document.getElementById("cafes").innerHTML = list.map(it=>`<div class="cf" data-id="${esc(it.id)}"><span class="p">${it.start?f(it.start)+"〜":""}${f(it.date)}</span><span class="n">${esc(it.name)}<span style="font-weight:500;color:var(--sub);font-size:12px">　${esc(it.maker||"")}</span></span>${it.reserve?`<span class="r"><b>予約：</b>${esc(it.reserve)}</span>`:""}</div>`).join("") || '<div class="empty">開催予定のカフェ・ダイニングはありません</div>';
+}
+function renderAll(){ renderChips(); renderCal(); renderCafes(); renderDeadlines(); }
+
+function openItem(id){
+  const it=ITEMS.find(x=>x.id===id); if(!it) return;
+  const md=document.getElementById("md");
+  md.className="md "+it.type;
+  const catLabel = it.type==="goods"?(CATN[it.cat]||"グッズ"):it.type==="prize"?"プライズ（UFOキャッチャー・オンクレ景品）":it.type==="cafe"?"カフェ・ダイニング":it.type==="reserve"?"カフェ予約・抽選":(CATN[it.cat]||TYPES[it.type].label);
+  const u=safeUrl(it.url), u2=safeUrl(it.url2);
+  md.innerHTML=`<button class="x" aria-label="閉じる">×</button>
+    <span class="lab ${it.type}">${catLabel}</span>${it.re?'<span class="re">再販</span>':""}
+    <h3>${esc(it.name)}</h3>
+    <dl>
+      <dt>${it.type==="reserve"?"日時":it.type==="deadline"?"締切":(it.type==="event"||it.type==="cafe")?"期間":it.type==="prize"?"登場":"発売"}</dt><dd>${whenText(it)}</dd>
+      ${it.maker?`<dt>メーカー</dt><dd>${esc(it.maker)}</dd>`:""}
+      ${it.price?`<dt>価格</dt><dd>${esc(it.price)}</dd>`:""}
+      ${it.note?`<dt>メモ</dt><dd>${esc(it.note)}</dd>`:""}
+      ${it.reserve?`<dt>予約方法</dt><dd>${esc(it.reserve)}</dd>`:""}
+      ${it.src?`<dt>情報元</dt><dd>${esc(it.src)}</dd>`:""}
+    </dl>
+    <div class="acts">${it.date&&daysTo(it.date)>=0?`<a class="bt y" target="_blank" rel="noopener" href="${esc(gcal(it))}">📅 Googleカレンダーに追加</a>`:""}${u?`<a class="bt" target="_blank" rel="noopener" href="${esc(u)}">${esc(it.src||"公式サイト")}で見る ↗</a>`:""}${u2?`<a class="bt" target="_blank" rel="noopener" href="${esc(u2)}">予約ページ ↗</a>`:""}</div>`;
+  document.getElementById("ov").classList.add("on");
+}
+function openDay(s){
+  const list=itemsOn(s), d=parse(s), md=document.getElementById("md"); md.className="md";
+  md.innerHTML=`<button class="x" aria-label="閉じる">×</button><h3>${d.getMonth()+1}月${d.getDate()}日（${DOW[d.getDay()]}）</h3><div class="ag-items">${list.map(x=>pill(x,s)).join("")}</div>`;
+  document.getElementById("ov").classList.add("on");
+}
+const closeM=()=>document.getElementById("ov").classList.remove("on");
+document.addEventListener("click",e=>{
+  const t=e.target;
+  if(t.closest(".x")||t.id==="ov"){closeM();return;}
+  const p=t.closest("[data-id]"); if(p){openItem(p.dataset.id);return;}
+  const m=t.closest(".more"); if(m){openDay(m.dataset.day);return;}
+  const c=t.closest(".chip"); if(c){on[c.dataset.t]=!on[c.dataset.t]; try{localStorage.setItem("kmt-filter",JSON.stringify(on));}catch(_){} renderAll();}
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeM();});
+document.getElementById("prev").onclick=()=>{cm--; if(cm<1){cm=12;cy--;} renderCal();};
+document.getElementById("next").onclick=()=>{cm++; if(cm>12){cm=1;cy++;} renderCal();};
+document.getElementById("todayBtn").onclick=()=>{cy=TODAY.getFullYear();cm=TODAY.getMonth()+1;renderCal();};
+
+function apply(d){
+  if(!d||!Array.isArray(d.items)) return false;
+  ITEMS=d.items.filter(x=>x&&x.id&&x.type&&TYPES[x.type]);
+  document.getElementById("upd").textContent = d.updatedAt ? `最終更新：${String(d.updatedAt).replace("T"," ").slice(0,16)}` : "";
+  renderAll(); return true;
+}
+apply(EMBED) || renderAll();
+if(DATA_URL && !DATA_URL.startsWith("__")){
+  fetch(DATA_URL+(DATA_URL.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store"})
+    .then(r=>r.ok?r.json():null).then(d=>{ if(d && (!EMBED || String(d.updatedAt||"")>=String(EMBED.updatedAt||""))) apply(d); }).catch(()=>{});
+}
+</script>
+</body>
+</html>
