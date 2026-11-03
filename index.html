@@ -126,10 +126,27 @@ h2.sec small{font-size:12px;color:var(--sub);font-weight:500}
 footer a{color:#ddd}
 footer{margin-top:40px;background:var(--ink);color:#aaa;font-size:12px;padding:20px 0 30px}
 footer p{margin:4px 0}
+.selbox{display:none;margin-top:14px}
+.selbox h3{font-size:16px;font-weight:900;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.selbox h3::before{content:"";width:5px;height:18px;background:var(--red)}
+.selbox .ag-items .pill{-webkit-line-clamp:3;max-height:none;font-size:13px;padding:7px 9px}
 @media (max-width:760px){
-  .cal{display:none}
-  .agenda{display:block;border-top:2px solid var(--ink)}
+  .wrap{padding:0 8px}
+  .agenda{display:none}
+  .mlabel{font-size:24px;min-width:112px}
+  .dow{font-size:11px;padding:4px 0}
+  .day{min-height:76px;padding:2px 2px 4px;gap:2px;cursor:pointer}
+  .dn{font-size:13px;padding:1px 2px}
+  .day.today{box-shadow:none}
+  .day.today .dn::after{display:none}
+  .day.today .dn{background:var(--ink);color:var(--yellow)!important;display:inline-block;align-self:flex-start;padding:2px 4px}
+  .day.sel{box-shadow:inset 0 0 0 2px var(--red)}
+  .cal .pill{font-size:8.5px;line-height:1.25;padding:0 2px;border-left-width:3px;-webkit-line-clamp:2;max-height:2.42em;overflow:hidden;pointer-events:none}
+  .cal .more{font-size:9px;padding:0 2px;pointer-events:none}
+  .selbox{display:block}
   .chips{margin-left:0;width:100%}
+  .chip{padding:4px 8px;font-size:12px}
+  .flt input{min-width:0;flex:1 1 100%}
   .row{grid-template-columns:70px 1fr;gap:4px 10px}
   .row .lb{grid-row:1/3}
   .row .mk{grid-column:2}
@@ -161,6 +178,7 @@ footer p{margin:4px 0}
   </div>
   <div class="cal" id="cal"></div>
   <div class="agenda" id="agenda"></div>
+  <div class="selbox" id="selbox"></div>
 
   <h2 class="sec" id="undatedTtl"></h2>
   <div class="rows" id="undated"></div>
@@ -197,6 +215,9 @@ try{ const s=JSON.parse(localStorage.getItem("kmt-filter")||"null"); if(s) on=Ob
 const now = new Date();
 const TODAY = new Date(now.getFullYear(),now.getMonth(),now.getDate());
 let cy = TODAY.getFullYear(), cm = TODAY.getMonth()+1;
+let selDay = `${TODAY.getFullYear()}-${String(TODAY.getMonth()+1).padStart(2,"0")}-${String(TODAY.getDate()).padStart(2,"0")}`;
+const isMobile=()=>window.matchMedia("(max-width:760px)").matches;
+function resetSel(){ selDay = (TODAY.getFullYear()===cy&&TODAY.getMonth()+1===cm) ? ymd(TODAY) : `${cy}-${String(cm).padStart(2,"0")}-01`; }
 
 const pad=n=>String(n).padStart(2,"0");
 const ymd=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
@@ -252,13 +273,15 @@ function renderCal(){
   for(let d=new Date(start); d<=end; d.setDate(d.getDate()+1)){
     const s=ymd(d), other=d.getMonth()!==cm-1, w=d.getDay();
     const list=itemsOn(s), isT=s===ymd(TODAY);
-    const cls=`day${other?" other":""}${w===0?" sun":w===6?" sat":""}${isT?" today":""}`;
-    const MAX=4, shown=list.slice(0,MAX);
-    html+=`<div class="${cls}"><div class="dn">${d.getDate()}</div>${shown.map(x=>pill(x,s)).join("")}${list.length>MAX?`<button class="more" data-day="${s}">ほか${list.length-MAX}件</button>`:""}</div>`;
+    const cls=`day${other?" other":""}${w===0?" sun":w===6?" sat":""}${isT?" today":""}${s===selDay?" sel":""}`;
+    const MAX=isMobile()?3:4, shown=list.slice(0,MAX);
+    html+=`<div class="${cls}" data-sel="${s}"><div class="dn">${d.getDate()}</div>${shown.map(x=>pill(x,s)).join("")}${list.length>MAX?`<button class="more" data-day="${s}">ほか${list.length-MAX}件</button>`:""}</div>`;
     if(!other && list.length) ag+=`<div class="ag-day${w===0?" sun":w===6?" sat":""}${isT?" today":""}"><div class="ag-d">${d.getDate()}<small>${DOW[w]}</small></div><div class="ag-items">${list.map(x=>pill(x,s)).join("")}</div></div>`;
   }
   document.getElementById("cal").innerHTML=html;
   document.getElementById("agenda").innerHTML=ag||'<div class="empty">この月に日付が決まっている予定はありません</div>';
+  { const sd=parse(selDay), sl=itemsOn(selDay);
+    document.getElementById("selbox").innerHTML=`<h3>${sd.getMonth()+1}月${sd.getDate()}日（${DOW[sd.getDay()]}）の予定</h3>`+(sl.length?`<div class="ag-items">${sl.map(x=>pill(x,selDay)).join("")}</div>`:'<div class="empty">この日の予定はありません。カレンダーの日付をタップすると、その日の予定が表示されます。</div>'); }
   const ymKey=`${cy}-${pad(cm)}`, PO={"上旬":1,"中旬":2,"下旬":3};
   const und=ITEMS.filter(it=>visible(it)&&!it.date&&it.ym===ymKey).sort((a,b)=>(PO[a.part]||9)-(PO[b.part]||9)||a.type.localeCompare(b.type));
   document.getElementById("undatedTtl").innerHTML=`${cm}月発売・登場（日付未定）<small>${und.length}件</small>`;
@@ -312,6 +335,7 @@ const closeM=()=>document.getElementById("ov").classList.remove("on");
 document.addEventListener("click",e=>{
   const t=e.target;
   if(t.closest(".x")||t.id==="ov"){closeM();return;}
+  const dc=t.closest(".cal [data-sel]"); if(dc && isMobile()){ selDay=dc.dataset.sel; const d=parse(selDay); if(d.getMonth()+1!==cm||d.getFullYear()!==cy){cy=d.getFullYear();cm=d.getMonth()+1;} renderCal(); return; }
   const p=t.closest("[data-id]"); if(p){openItem(p.dataset.id);return;}
   const m=t.closest(".more"); if(m){openDay(m.dataset.day);return;}
   const cb=t.closest("[data-c]"); if(cb){fc=fc===cb.dataset.c?"":cb.dataset.c; renderAll(); return;}
@@ -320,9 +344,10 @@ document.addEventListener("click",e=>{
 });
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeM();});
 document.getElementById("q").addEventListener("input",e=>{fq=e.target.value.trim();renderAll();});
-document.getElementById("prev").onclick=()=>{cm--; if(cm<1){cm=12;cy--;} renderCal();};
-document.getElementById("next").onclick=()=>{cm++; if(cm>12){cm=1;cy++;} renderCal();};
-document.getElementById("todayBtn").onclick=()=>{cy=TODAY.getFullYear();cm=TODAY.getMonth()+1;renderCal();};
+document.getElementById("prev").onclick=()=>{cm--; if(cm<1){cm=12;cy--;} resetSel(); renderCal();};
+document.getElementById("next").onclick=()=>{cm++; if(cm>12){cm=1;cy++;} resetSel(); renderCal();};
+document.getElementById("todayBtn").onclick=()=>{cy=TODAY.getFullYear();cm=TODAY.getMonth()+1;resetSel();renderCal();};
+let wasMobile=isMobile(); window.addEventListener("resize",()=>{const m=isMobile(); if(m!==wasMobile){wasMobile=m; renderCal();}});
 
 function apply(d){
   if(!d||!Array.isArray(d.items)) return false;
