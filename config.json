@@ -1,9 +1,7 @@
 {
-  "adsenseClient": "",
+  "adsenseClient": "ca-pub-5169001960076298",
   "adsenseSlot": "",
   "xUrl": "",
   "xLabel": "",
-  "links": [
-    {"label": "fiofios.com", "url": "https://fiofios.com/"}
-  ]
+  "links": []
 }
