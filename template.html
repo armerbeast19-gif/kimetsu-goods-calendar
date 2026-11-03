@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<!--__ADSENSE_HEAD__-->
 <style>
 :root{
   --ink:#111; --sub:#555; --mute:#999; --line:#e5e5e5; --bg:#fff; --soft:#f5f5f5;
@@ -99,6 +100,22 @@ h2.sec small{font-size:12px;color:var(--sub);font-weight:500}
 .bt{border:2px solid var(--ink);background:#fff;padding:7px 12px;font-weight:900;font-size:13px;text-decoration:none;cursor:pointer}
 .bt.y{background:var(--yellow)}
 .re{display:inline-block;font-size:11px;font-weight:900;border:2px solid var(--ink);padding:0 5px;margin-left:6px}
+.topbar .lk{display:flex;gap:12px;align-items:center}
+.topbar .lk a{color:#fff;text-decoration:none;font-weight:700}
+.topbar .lk a:hover{text-decoration:underline}
+.flt{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:0 0 12px}
+.flt input{border:2px solid var(--ink);padding:6px 10px;font:inherit;font-weight:700;min-width:220px;flex:0 1 280px}
+.cc{display:flex;flex-wrap:wrap;gap:5px}
+.cc button{border:1px solid #ccc;background:#fff;padding:3px 9px;font-size:12px;font-weight:700;cursor:pointer;border-radius:999px}
+.cc button.on{background:var(--red);border-color:var(--red);color:#fff}
+.cc button small{color:var(--mute);font-weight:500;margin-left:3px}
+.cc button.on small{color:#ffd}
+.fnote{font-size:12px;color:var(--red);font-weight:700}
+.fnote button{border:none;background:none;color:var(--sub);text-decoration:underline;cursor:pointer;font-size:12px}
+.adwrap{margin:24px 0;min-height:1px;text-align:center}
+.follow{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 0;padding:18px;border:2px solid var(--ink);align-items:center}
+.follow p{margin:0;font-weight:700;flex:1;min-width:200px}
+footer a{color:#ddd}
 footer{margin-top:40px;background:var(--ink);color:#aaa;font-size:12px;padding:20px 0 30px}
 footer p{margin:4px 0}
 @media (max-width:760px){
@@ -112,7 +129,7 @@ footer p{margin:4px 0}
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap"><span>非公式ファンまとめ</span><span class="upd" id="upd"></span></div></div>
+<div class="topbar"><div class="wrap"><span>非公式ファンまとめ</span><span class="lk"><span class="upd" id="upd"></span><!--__TOPLINKS__--></span></div></div>
 <header class="mast"><div class="wrap">
   <div class="mark">鬼滅<br>GOODS</div>
   <h1 class="ttl"><small>DEMON SLAYER GOODS CALENDAR</small>鬼滅の刃 グッズ発売カレンダー</h1>
@@ -129,22 +146,29 @@ footer p{margin:4px 0}
     <div class="chips" id="chips"></div>
   </div>
 
+  <div class="flt">
+    <input id="q" type="search" placeholder="🔍 商品名・キャラ名で検索" aria-label="商品名・キャラ名で検索">
+    <div class="cc" id="cc"></div>
+    <span class="fnote" id="fnote"></span>
+  </div>
   <div class="cal" id="cal"></div>
   <div class="agenda" id="agenda"></div>
 
   <h2 class="sec" id="undatedTtl"></h2>
   <div class="rows" id="undated"></div>
 
+  <!--__AD_SLOT__-->
   <h2 class="sec">開催中・開催予定のカフェ・ダイニング<small>予約方法つき</small></h2>
   <div class="cafes" id="cafes"></div>
 
   <h2 class="sec">これからの締切・受付・カフェ<small>終了日が近い順</small></h2>
   <div class="rows" id="deadlines"></div>
+  <!--__FOLLOW__-->
 </main>
 
 <footer><div class="wrap">
   <p>掲載情報はすべて各メーカー・公式ショップの公式サイトで確認したもので、毎日更新しています。発売日・価格は変更されることがあるので、購入前に各公式サイトでご確認ください。「目安」と書かれた日時は公式Xの過去の告知から見込んだもので、確定情報ではありません。</p>
-  <p>本サイトは非公式のまとめです。©吾峠呼世晴／集英社・アニプレックス・ufotable</p>
+  <!--__FOOTLINKS__--><p>本サイトは非公式のまとめです。©吾峠呼世晴／集英社・アニプレックス・ufotable</p>
 </div></footer>
 
 <div class="ov" id="ov"><div class="md" id="md"></div></div>
@@ -171,7 +195,17 @@ const ymd=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 const parse=s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d);};
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const daysTo=s=>Math.round((parse(s)-TODAY)/86400000);
-const visible=it=>on[it.type]!==false;
+const CHARS=[["炭治郎",["炭治郎","TANJIRO","炭子"]],["禰豆子",["禰豆子","NEZUKO"]],["善逸",["善逸","ZENITSU","善子"]],["伊之助",["伊之助","INOSUKE","猪子"]],["カナヲ",["カナヲ","KANAO"]],["義勇",["義勇","GIYU"]],["しのぶ",["しのぶ","SHINOBU"]],["煉獄",["煉獄","杏寿郎","RENGOKU","KYOJURO"]],["宇髄",["宇髄","天元","UZUI","TENGEN"]],["無一郎",["無一郎","時透","MUICHIRO"]],["蜜璃",["蜜璃","甘露寺","MITSURI"]],["伊黒",["伊黒","小芭内","OBANAI"]],["実弥",["実弥","不死川","SANEMI"]],["悲鳴嶼",["悲鳴嶼","行冥","GYOMEI"]],["猗窩座",["猗窩座","AKAZA","狛治"]],["童磨",["童磨","DOMA","DOUMA"]],["黒死牟",["黒死牟","KOKUSHIBO"]],["無惨",["無惨","MUZAN"]]];
+let fq="", fc="";
+const hay=it=>[it.name,it.note,it.maker].join(" ").toUpperCase();
+const hitChar=(it,c)=>{const e=CHARS.find(x=>x[0]===c);return !!e&&e[1].some(k=>hay(it).includes(k.toUpperCase()));};
+const hitQ=it=>{if(!fq)return true;const h=hay(it);const q=fq.toUpperCase();if(h.includes(q))return true;const e=CHARS.find(x=>x[1].some(k=>k.toUpperCase()===q||x[0]===fq));return !!e&&e[1].some(k=>h.includes(k.toUpperCase()));};
+const visible=it=>on[it.type]!==false&&hitQ(it)&&(!fc||hitChar(it,fc));
+function renderCC(){
+  document.getElementById("cc").innerHTML=CHARS.map(([c])=>[c,ITEMS.filter(it=>hitChar(it,c)).length]).filter(x=>x[1]>0).map(([c,n])=>`<button data-c="${esc(c)}" class="${fc===c?"on":""}">${esc(c)}<small>${n}</small></button>`).join("");
+  const f=document.getElementById("fnote");
+  if(fq||fc){const n=ITEMS.filter(visible).length;f.innerHTML=`${esc([fc,fq].filter(Boolean).join("・"))}で絞り込み中（${n}件）<button id="clr">解除</button>`;}else f.innerHTML="";
+}
 const safeUrl=u=>/^https?:\/\//.test(u||"")?u:"";
 
 function gcal(it){
@@ -239,7 +273,7 @@ function renderCafes(){
   const list=ITEMS.filter(it=>it.type==="cafe"&&it.date&&daysTo(it.date)>=0).sort((a,b)=>parse(a.date)-parse(b.date));
   document.getElementById("cafes").innerHTML = list.map(it=>`<div class="cf" data-id="${esc(it.id)}"><span class="p">${it.start?f(it.start)+"〜":""}${f(it.date)}</span><span class="n">${esc(it.name)}<span style="font-weight:500;color:var(--sub);font-size:12px">　${esc(it.maker||"")}</span></span>${it.reserve?`<span class="r"><b>予約：</b>${esc(it.reserve)}</span>`:""}</div>`).join("") || '<div class="empty">開催予定のカフェ・ダイニングはありません</div>';
 }
-function renderAll(){ renderChips(); renderCal(); renderCafes(); renderDeadlines(); }
+function renderAll(){ renderChips(); renderCC(); renderCal(); renderCafes(); renderDeadlines(); }
 
 function openItem(id){
   const it=ITEMS.find(x=>x.id===id); if(!it) return;
@@ -272,9 +306,12 @@ document.addEventListener("click",e=>{
   if(t.closest(".x")||t.id==="ov"){closeM();return;}
   const p=t.closest("[data-id]"); if(p){openItem(p.dataset.id);return;}
   const m=t.closest(".more"); if(m){openDay(m.dataset.day);return;}
+  const cb=t.closest("[data-c]"); if(cb){fc=fc===cb.dataset.c?"":cb.dataset.c; renderAll(); return;}
+  if(t.id==="clr"){fc="";fq="";document.getElementById("q").value="";renderAll();return;}
   const c=t.closest(".chip"); if(c){on[c.dataset.t]=!on[c.dataset.t]; try{localStorage.setItem("kmt-filter",JSON.stringify(on));}catch(_){} renderAll();}
 });
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeM();});
+document.getElementById("q").addEventListener("input",e=>{fq=e.target.value.trim();renderAll();});
 document.getElementById("prev").onclick=()=>{cm--; if(cm<1){cm=12;cy--;} renderCal();};
 document.getElementById("next").onclick=()=>{cm++; if(cm>12){cm=1;cy++;} renderCal();};
 document.getElementById("todayBtn").onclick=()=>{cy=TODAY.getFullYear();cm=TODAY.getMonth()+1;renderCal();};
