@@ -376,10 +376,12 @@ function renderChips(){
     return `<button class="chip${on[k]?"":" off"}" data-t="${k}"><i style="background:var(--c-${k})"></i>${k==="goods"?"グッズ発売":k==="cafe"?"カフェ・ダイニング":k==="reserve"?"カフェ予約・抽選":k==="collab"?"期間限定コラボ":TYPES[k].label}<span style="color:var(--mute);font-weight:500">${n}</span></button>`;
   }).join("");
 }
-function pill(it,day){ const pre = it.type==="reserve"?"🎟 ":it.type==="deadline"?"⏰ ":it.type==="cafe"?(day&&day===it.start?"☕開始 ":"☕最終日 "):it.type==="collab"?(day&&day===it.start?"🤝開始 ":"🤝最終日 "):""; return `<button class="pill ${it.type}" data-id="${esc(it.id)}" title="${esc(it.name)}">${pre}${esc(it.name)}</button>`; }
+const isStart=(it,day)=>it.type==="deadline"&&it.start&&day&&day===it.start&&it.start!==it.date;
+const dispName=(it,day)=>isStart(it,day)?String(it.name).replace(/\s*(予約|受注|受付)*(受付)?(終了|締切)$/,""):it.name;
+function pill(it,day){ const pre = it.type==="reserve"?"🎟 ":it.type==="deadline"?(isStart(it,day)?"🛒受付開始 ":"⏰ "):it.type==="cafe"?(day&&day===it.start?"☕開始 ":"☕最終日 "):it.type==="collab"?(day&&day===it.start?"🤝開始 ":"🤝最終日 "):""; return `<button class="pill ${it.type}" data-id="${esc(it.id)}" title="${esc(dispName(it,day))}">${pre}${esc(dispName(it,day))}</button>`; }
 function itemsOn(dateStr){
   const O=["deadline","reserve","cafe","collab","event","goods","prize"];
-  return ITEMS.filter(it=>visible(it)&&(it.date===dateStr||((it.type==="cafe"||it.type==="collab")&&it.start===dateStr))).sort((a,b)=>O.indexOf(a.type)-O.indexOf(b.type));
+  return ITEMS.filter(it=>visible(it)&&(it.date===dateStr||((it.type==="cafe"||it.type==="collab"||it.type==="deadline")&&it.start===dateStr&&it.start!==it.date))).sort((a,b)=>O.indexOf(a.type)-O.indexOf(b.type));
 }
 function renderCal(){
   document.getElementById("mlabel").innerHTML=`${cy}.${pad(cm)}<span>月</span>`;
@@ -461,6 +463,7 @@ function subText(it,s){
   const f=d=>{const x=parse(d);return `${x.getMonth()+1}/${x.getDate()}`;};
   const a=[];
   if(it.type==="cafe"||it.type==="collab") a.push(it.start===s?`今日から ${f(it.start)}〜${f(it.date)}`:`今日が最終日（${it.start?f(it.start)+"〜":""}${f(it.date)}）`);
+  else if(it.type==="deadline"&&isStart(it,s)) a.push(`今日から受付開始（${f(it.date)}まで）`);
   else if(it.type==="deadline"||it.type==="event") a.push(it.start&&it.start!==it.date?`${f(it.start)}〜${f(it.date)}`:"");
   if(it.price) a.push(it.price);
   if(it.maker&&it.type!=="cafe") a.push(it.maker);
@@ -476,7 +479,7 @@ function openPop(s,cell){
   selDay=s; document.querySelectorAll(".day.sel").forEach(x=>x.classList.remove("sel")); cell.classList.add("sel"); renderSel();
   const lb=it=>it.type==="goods"?(CATN[it.cat]||"発売"):TYPES[it.type].label;
   p.innerHTML=`<span class="ar"></span><div class="ph">${d.getMonth()+1}月${d.getDate()}日（${DOW[d.getDay()]}）<button aria-label="閉じる" data-close>×</button></div>`+
-    (list.length?`<div class="pl">${list.map(it=>`<button class="pi ${it.type}" data-id="${esc(it.id)}"><span class="nm"><span class="lab ${it.type}">${esc(lb(it))}</span>${esc(it.name)}${it.re?'<span class="re">再販</span>':""}</span>${subText(it,s)?`<span class="sb">${esc(subText(it,s))}</span>`:""}<span class="go">詳しく見る ›</span></button>`).join("")}</div>`:'<div class="none">この日の予定はありません</div>');
+    (list.length?`<div class="pl">${list.map(it=>`<button class="pi ${it.type}" data-id="${esc(it.id)}"><span class="nm"><span class="lab ${it.type}">${isStart(it,s)?"受付開始":esc(lb(it))}</span>${esc(dispName(it,s))}${it.re?'<span class="re">再販</span>':""}</span>${subText(it,s)?`<span class="sb">${esc(subText(it,s))}</span>`:""}<span class="go">詳しく見る ›</span></button>`).join("")}</div>`:'<div class="none">この日の予定はありません</div>');
   p.className="pop on";
   const r=cell.getBoundingClientRect(), sx=window.scrollX, sy=window.scrollY, vw=document.documentElement.clientWidth, M=8;
   const ar=p.querySelector(".ar");
